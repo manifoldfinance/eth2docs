@@ -1,0 +1,42 @@
+{
+  "name": "eth2api-website",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "SEE CONTRIBUTORS",
+  "scripts": {
+    "clear": "docusaurus clear",
+    "dev": "docusaurus start",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "serve": "docusaurus serve",
+    "test": "percy snapshot snapshots.js"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-beta.21",
+    "@docusaurus/preset-classic": "^2.0.0-beta.21",
+    "clsx": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "redocusaurus": "^1.2.2"
+  },
+  "devDependencies": {
+    "@percy/cli": "^1.3.0",
+    "@types/react": "^17.0.45",
+    "eslint": "^8.18.0",
+    "prettier": "^2.7.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

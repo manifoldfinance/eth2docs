@@ -1,0 +1,8 @@
+.docusaurus
+cache/
+*.html
+*.css
+*.svg
+dist/
+build
+public/
