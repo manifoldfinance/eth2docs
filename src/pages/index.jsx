@@ -23,7 +23,7 @@ const sections = [
     description: (
       <>
         Support for
-        <a href="/docs/guides/build-time-rendering"> All Clients</a>
+        <a href="#"> All Clients</a>
       </>
     ),
   },
@@ -50,7 +50,7 @@ function Section({ title, description, link }) {
 
 function Docs() {
   return (
-    <Layout title="Redocusaurus" description="OpenAPI documentation solution">
+    <Layout title="Eth2" description="OpenAPI documentation solution">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">Ethereum2</h1>

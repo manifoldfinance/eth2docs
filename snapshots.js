@@ -5,7 +5,6 @@ const urls = [
   },
   { name: 'Beacon Spec', path: '/api/beacon-api/' },
   { name: 'Execution Spec', path: '/api/execution-api' },
-  { name: 'Schema Imports', path: '/docs/guides/schema-imports' },
 ];
 
 module.exports = () => {

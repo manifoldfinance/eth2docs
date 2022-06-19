@@ -13,20 +13,21 @@ const redocusaurus = [
       },
       {
         id: 'beacon-api',
-        spec: 'openapi/beacon/beacon.yaml',
+        spec: 'openapi/beacon/beacon-api.yaml',
         route: '/api/beacon-api/',
       },
       {
         id: 'execution-api',
-        spec: 'openapi/swagger/swagger.json',
+        spec: 'openapi/execution/openapi.yaml',
         route: '/api/execution-api/',
       },
-      {
+      /*    {
         id: 'using-remote-url',
         // Remote File
         spec: 'https://redocly.github.io/redoc/openapi.yaml',
         route: '/examples/using-remote-url/',
       },
+      
       {
         id: 'using-custom-page',
         spec: 'openapi/single-file/openapi.yaml',
@@ -37,6 +38,7 @@ const redocusaurus = [
         spec: 'openapi/single-file/openapi.yaml',
         // NOTE: no `route` passed, instead data used in custom React Component ('custom-layout/index.jsx')
       },
+      */
     ],
     theme: {
       /**
@@ -47,7 +49,7 @@ const redocusaurus = [
        * Options to pass to redoc
        * @see https://github.com/redocly/redoc#redoc-options-object
        */
-      options: { disableSearch: false },
+      options: { disableSearch: true },
       /**
        * Options to pass to override RedocThemeObject
        * @see https://github.com/Redocly/redoc#redoc-theme-object
@@ -83,6 +85,8 @@ const config = {
   ],
   title: 'Ethereum2 APIs',
   tagline: 'OpenAPI Ethereum2 Documentation',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   customFields: {
     meta: {
       description: 'Redoc generated documentation for Ethereum2',
@@ -91,6 +95,7 @@ const config = {
   url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', // Your website URL
   baseUrl: process.env.DEPLOY_BASE_URL || '/', // Base URL for your project */
   favicon: 'img/favicon.ico',
+  trailingSlash: false,
   themeConfig: {
     navbar: {
       title: 'Ethereum2 Clients',
@@ -115,22 +120,6 @@ const config = {
             {
               label: 'Execution APIs',
               to: '/api/execution-api/',
-            },
-            {
-              label: 'Using Swagger',
-              to: '/examples/execution-api/',
-            },
-            {
-              label: 'Custom Page',
-              to: '/examples/custom-page/',
-            },
-            {
-              label: 'Custom Layout',
-              to: '/examples/custom-layout/',
-            },
-            {
-              label: 'Using Remote URL',
-              to: '/examples/using-remote-url/',
             },
           ],
         },
@@ -161,7 +150,6 @@ const config = {
       //   alt: 'Redocusaurus Logo',
       //   src: 'img/logoDark.png',
       // },
-      style: 'dark',
       links: [
         {
           title: ' API Clients',
