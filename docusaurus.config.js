@@ -72,13 +72,16 @@ if (process.env.VERCEL_URL) {
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
+  plugins: ["docusaurus-plugin-sass", "@docusaurus/plugin-ideal-image"],
   presets: [
     /** ************ Your other presets' config  *********** */
     [
       '@docusaurus/preset-classic',
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
-        theme: { customCss: [require.resolve('./src/custom.css')] },
+        theme: { 
+          customCss: [require.resolve('./src/css/style.scss')] },
+          
         docs: {
           routeBasePath: '/docs',
           editUrl: 'https://github.com/sambacha/eth2api/edit/master/',
@@ -89,7 +92,7 @@ const config = {
     redocusaurus,
   ],
   title: 'Ethereum2 APIs',
-  tagline: 'OAI Ethereum2 Specifications',
+  tagline: 'API Specifications Clients, Nodes, and DApps',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   customFields: {
