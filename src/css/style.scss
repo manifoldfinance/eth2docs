@@ -20,7 +20,7 @@
   --ifm-footer-background-color: var(--ifm-background-surface-color);
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   // --ifm-background-color: #242526;
   // --ifm-background-surface-color: #18191a;
   --ifm-color-primary: #ffcf5d;
@@ -38,7 +38,7 @@ html[data-theme="dark"] {
   padding: 0 var(--ifm-pre-padding);
   background-color: rgb(72, 77, 91);
 
-  html[data-theme="dark"] & {
+  html[data-theme='dark'] & {
     background-color: rgba(0, 0, 0, 0.3);
   }
 }

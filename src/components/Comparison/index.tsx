@@ -1,54 +1,54 @@
-import React from "react"
+import React from 'react';
 
-import { FiCheck, FiX } from "react-icons/fi"
+import { FiCheck, FiX } from 'react-icons/fi';
 
-import Headline from "@site/src/components/Headline"
+import Headline from '@site/src/components/Headline';
 
-import styles from "./styles.module.scss"
+import styles from './styles.module.scss';
 
 const data = [
   {
-    id: "beacon",
-    name: "Beacon",
+    id: 'beacon',
+    name: 'Beacon',
     highlighted: true,
   },
   {
-    id: "validator",
-    name: "Validator",
+    id: 'validator',
+    name: 'Validator',
     highlighted: false,
   },
   {
-    id: "execution",
-    name: "Execution",
+    id: 'execution',
+    name: 'Execution',
     highlighted: false,
   },
-]
+];
 
 const features = [
   {
-    name: "Asynchronous",
+    name: 'Asynchronous',
     values: { beacon: true, validator: false, execution: false },
   },
   {
-    name: "Plugin support",
+    name: 'Plugin support',
     values: { beacon: true, validator: true, execution: true },
   },
   {
-    name: "Metrics",
+    name: 'Metrics',
     values: { beacon: true, validator: true, execution: true },
   },
   {
-    name: "Monitoring",
+    name: 'Monitoring',
     values: { beacon: false, validator: true, execution: true },
   },
   {
-    name: "Key Management",
+    name: 'Key Management',
     values: { beacon: false, validator: true, execution: true },
   },
-]
+];
 
 const renderTable = () => {
-  const size = 24
+  const size = 24;
   return (
     <table className={styles.table}>
       <thead>
@@ -66,10 +66,7 @@ const renderTable = () => {
             {props.values &&
               data.length &&
               data.map((item, idx) => (
-                <td
-                  key={idx}
-                  className={item.highlighted ? styles.resultH : styles.result}
-                >
+                <td key={idx} className={item.highlighted ? styles.resultH : styles.result}>
                   {props.values[item.id] === true ? (
                     <FiCheck size={size} />
                   ) : (
@@ -81,8 +78,8 @@ const renderTable = () => {
         ))}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 const Comparison = () => {
   return (
@@ -100,7 +97,7 @@ const Comparison = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Comparison
+export default Comparison;
