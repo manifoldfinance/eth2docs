@@ -8,18 +8,18 @@ import styles from "./styles.module.scss"
 
 const data = [
   {
-    id: "oxidizer",
-    name: "Oxidizer",
+    id: "beacon",
+    name: "Beacon",
     highlighted: true,
   },
   {
-    id: "diesel",
-    name: "Diesel",
+    id: "validator",
+    name: "Validator",
     highlighted: false,
   },
   {
-    id: "rustorm",
-    name: "RustORM",
+    id: "execution",
+    name: "Execution",
     highlighted: false,
   },
 ]
@@ -27,23 +27,23 @@ const data = [
 const features = [
   {
     name: "Asynchronous",
-    values: { oxidizer: true, diesel: false, rustorm: false },
+    values: { beacon: true, validator: false, execution: false },
   },
   {
-    name: "Raw SQL",
-    values: { oxidizer: true, diesel: true, rustorm: true },
+    name: "Plugin support",
+    values: { beacon: true, validator: true, execution: true },
   },
   {
-    name: "PostgreSQL",
-    values: { oxidizer: true, diesel: true, rustorm: true },
+    name: "Metrics",
+    values: { beacon: true, validator: true, execution: true },
   },
   {
-    name: "MySQL",
-    values: { oxidizer: false, diesel: true, rustorm: true },
+    name: "Monitoring",
+    values: { beacon: false, validator: true, execution: true },
   },
   {
-    name: "SQLite",
-    values: { oxidizer: false, diesel: true, rustorm: true },
+    name: "Key Management",
+    values: { beacon: false, validator: true, execution: true },
   },
 ]
 
@@ -92,8 +92,8 @@ const Comparison = () => {
           <div className="col col--4 col--offset-1">
             <Headline
               category="Comparison"
-              title="How does Oxidizer compare to other popular options?"
-              subtitle="Diesel and RustORM are other great ORM options for Rust. Here are the three crates compared."
+              title="How do  Eth2 clients compare to each other?"
+              subtitle="This is not an exhaustive list of clients!"
             />
           </div>
           <div className="col col--6 col--offset-1">{renderTable()}</div>

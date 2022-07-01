@@ -92,7 +92,7 @@ const config = {
     redocusaurus,
   ],
   title: 'Ethereum2 APIs',
-  tagline: 'OAI Ethereum2 Specifications',
+  tagline: 'API Specifications Clients, Nodes, and DApps',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   customFields: {

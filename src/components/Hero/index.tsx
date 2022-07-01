@@ -17,7 +17,7 @@ const Hero = () => {
     <header id="hero" className={clsx("hero", styles.banner)}>
       <div className="container">
         <img
-          src={useBaseUrl(`img/logo.svg`)}
+          src={useBaseUrl(`img/eth.webp`)}
           alt="Logo"
           className={styles.logo}
         />

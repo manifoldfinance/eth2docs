@@ -15,27 +15,27 @@ const size = 24
 const data: Feature[] = [
   {
     icon: <FiPackage size={size} />,
-    title: "Dead simple, but powerful",
+    title: "Phase0",
     description:
-      "Oxidizer is a Rust ORM based on tokio-postgres and refinery. Two powerful libraries that give performance and reliability to perform database interactions.",
+      "The beacon node (BN) maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network. Conceptually, it does not maintain keypairs that participate with the beacon chain .",
   },
   {
     icon: <FiZap size={size} />,
-    title: "Asynchronous from the ground up",
+    title: "Validator client (VC) i",
     description:
-      "By using tokio and tokio-postgres, all the database operations are efficiently handled by tokio at runtime.",
+      "These duties include the production of beacon blocks and signing of attestations..",
   },
   {
     icon: <FiDatabase size={size} />,
-    title: "Relations",
+    title: "Beacon node (BN)",
     description:
-      " Oxidizer macros generate code to access forward and reverse relations between entities with ease.",
+      "Maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network..",
   },
   {
     icon: <FiCoffee size={size} />,
-    title: "Productive and Extensible",
+    title: "Execution APIs",
     description:
-      "Write reusable code and think in terms of your problem domain, not SQL.",
+      "This interface allows downstream tooling and infrastructure to treat different Ethereum clients as modules that can be swapped at will..",
   },
 ]
 
