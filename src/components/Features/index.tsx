@@ -1,47 +1,47 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from 'react';
 
-import clsx from "clsx"
-import { FiCoffee, FiDatabase, FiPackage, FiZap } from "react-icons/fi"
+import clsx from 'clsx';
+import { FiCoffee, FiDatabase, FiPackage, FiZap } from 'react-icons/fi';
 
-import styles from "./styles.module.scss"
+import styles from './styles.module.scss';
 
 interface Feature {
-  icon: ReactNode
-  title: string
-  description: string
+  icon: ReactNode;
+  title: string;
+  description: string;
 }
 
-const size = 24
+const size = 24;
 const data: Feature[] = [
   {
     icon: <FiPackage size={size} />,
-    title: "Phase0",
+    title: 'Phase0',
     description:
-      "The beacon node (BN) maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network. Conceptually, it does not maintain keypairs that participate with the beacon chain .",
+      'The beacon node (BN) maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network. Conceptually, it does not maintain keypairs that participate with the beacon chain .',
   },
   {
     icon: <FiZap size={size} />,
-    title: "Validator client (VC) i",
+    title: 'Validator client (VC) i',
     description:
-      "These duties include the production of beacon blocks and signing of attestations..",
+      'These duties include the production of beacon blocks and signing of attestations..',
   },
   {
     icon: <FiDatabase size={size} />,
-    title: "Beacon node (BN)",
+    title: 'Beacon node (BN)',
     description:
-      "Maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network..",
+      'Maintains the state of the beacon chain by communicating with other beacon nodes in the Ethereum network..',
   },
   {
     icon: <FiCoffee size={size} />,
-    title: "Execution APIs",
+    title: 'Execution APIs',
     description:
-      "This interface allows downstream tooling and infrastructure to treat different Ethereum clients as modules that can be swapped at will..",
+      'This interface allows downstream tooling and infrastructure to treat different Ethereum clients as modules that can be swapped at will..',
   },
-]
+];
 
 const Feature = ({ icon, title, description }: Feature) => {
   return (
-    <div className={clsx("col col--6", styles.feature)}>
+    <div className={clsx('col col--6', styles.feature)}>
       <div className="item">
         <div className={styles.header}>
           <div className={styles.icon}>{icon}</div>
@@ -50,8 +50,8 @@ const Feature = ({ icon, title, description }: Feature) => {
         <p>{description}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Features = () => {
   return (
@@ -68,7 +68,7 @@ const Features = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

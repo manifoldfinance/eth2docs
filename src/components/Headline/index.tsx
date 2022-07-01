@@ -1,12 +1,12 @@
-import React from "react"
+import React from 'react';
 
-import styles from "./styles.module.scss"
+import styles from './styles.module.scss';
 
 interface HeadlineProps {
-  category?: string
-  offset?: number
-  subtitle?: string
-  title?: string
+  category?: string;
+  offset?: number;
+  subtitle?: string;
+  title?: string;
 }
 
 const Headline = ({ category, offset = 0, subtitle, title }: HeadlineProps) => {
@@ -20,7 +20,7 @@ const Headline = ({ category, offset = 0, subtitle, title }: HeadlineProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Headline
+export default Headline;
