@@ -17,6 +17,11 @@ const redocusaurus = [
         route: '/api/beacon-api/',
       },
       {
+        id: 'mev-boost-api',
+        spec: 'openapi/mev/mev-boost-api.yml',
+        route: '/api/mev-boost-api/',
+      },
+      {
         id: 'execution-api',
         spec: 'openapi/execution/openapi.yaml',
         route: '/api/execution-api/',
@@ -84,7 +89,7 @@ const config = {
     redocusaurus,
   ],
   title: 'Ethereum2 APIs',
-  tagline: 'OpenAPI Ethereum2 Documentation',
+  tagline: 'OAI Ethereum2 Specifications',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   customFields: {
@@ -98,15 +103,15 @@ const config = {
   trailingSlash: false,
   themeConfig: {
     navbar: {
-      title: 'Ethereum2 Clients',
+      title: 'Ethereum2 Node & Clients',
       items: [
         {
-          label: 'Docs',
+          label: 'Guidebook',
           position: 'left',
           to: '/docs',
         },
         {
-          label: 'Examples',
+          label: 'Eth2 APIs',
           position: 'left',
           items: [
             {
@@ -121,10 +126,14 @@ const config = {
               label: 'Execution APIs',
               to: '/api/execution-api/',
             },
+            {
+              label: 'MEV Boost API',
+              to: '/api/mev-boost-api/',
+            },
           ],
         },
         {
-          label: 'v1',
+          label: 'v2022.06',
           position: 'right',
           items: [
             {
@@ -180,13 +189,13 @@ const config = {
               href: 'https://github.com/sambacha/eth2api',
             },
             {
-              label: 'Contact',
-              href: '#',
+              label: 'Telegram',
+              href: 'https://t.me/manifoldfinance',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="#" target="_blank" rel="noopener noreferrer">Ethereum Contributors</a>. Built with <a href="#" target="_blank" rel="noopener noreferrer">Docusaurus</a>`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://ethereum-magicians.org/" target="_blank" rel="noopener noreferrer">Ethereum Contributors</a>. Powered by <a href="https://ethereum.org/en/upgrades/merge/" target="_blank" rel="noopener noreferrer">Ethereum</a>`,
     },
   },
 };
