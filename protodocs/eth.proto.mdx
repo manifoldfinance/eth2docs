@@ -1,0 +1,87 @@
+---
+title: eth.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `eth.proto`
+_**path** eth.proto_
+
+_**package** web3_
+
+
+
+---
+
+## Messages
+
+
+### `BlockNumberResponse`
+<ProtoMessage key={0} message={{"name":"BlockNumberResponse","longName":"BlockNumberResponse","fullName":"web3.BlockNumberResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block_number","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `BlockRequest`
+<ProtoMessage key={1} message={{"name":"BlockRequest","longName":"BlockRequest","fullName":"web3.BlockRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"search_location","description":"","label":"","type":"BlockSearchLocation","longType":"BlockSearchLocation","fullType":"web3.BlockSearchLocation","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/eth.proto#blocksearchlocation"}]}} />
+
+
+### `BlockSearchLocation`
+<ProtoMessage key={2} message={{"name":"BlockSearchLocation","longName":"BlockSearchLocation","fullName":"web3.BlockSearchLocation","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":true,"oneofdecl":"location","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"number","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":true,"oneofdecl":"location","defaultValue":""}]}} />
+
+
+### `FullBlockResponse`
+<ProtoMessage key={3} message={{"name":"FullBlockResponse","longName":"FullBlockResponse","fullName":"web3.FullBlockResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block","description":"","label":"","type":"FullBlock","longType":"FullBlock","fullType":"web3.FullBlock","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/common.proto#fullblock"}]}} />
+
+
+### `LightBlockResponse`
+<ProtoMessage key={4} message={{"name":"LightBlockResponse","longName":"LightBlockResponse","fullName":"web3.LightBlockResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block","description":"","label":"","type":"LightBlock","longType":"LightBlock","fullType":"web3.LightBlock","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/common.proto#lightblock"}]}} />
+
+
+### `ResolveBlockHashRequest`
+<ProtoMessage key={5} message={{"name":"ResolveBlockHashRequest","longName":"ResolveBlockHashRequest","fullName":"web3.ResolveBlockHashRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block_number","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `ResolveBlockHashResponse`
+<ProtoMessage key={6} message={{"name":"ResolveBlockHashResponse","longName":"ResolveBlockHashResponse","fullName":"web3.ResolveBlockHashResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `TransactionResponse`
+<ProtoMessage key={7} message={{"name":"TransactionResponse","longName":"TransactionResponse","fullName":"web3.TransactionResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"transaction","description":"","label":"","type":"StoredTransaction","longType":"StoredTransaction","fullType":"web3.StoredTransaction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/common.proto#storedtransaction"}]}} />
+
+---
+## Services
+
+
+### `EthApi`
+
+
+
+
+#### `BlockNumber`
+<ProtoServiceMethod key={'BlockNumber-0'} method={{"name":"BlockNumber","description":"","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"BlockNumberResponse","responseLongType":"BlockNumberResponse","responseFullType":"web3.BlockNumberResponse","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/eth.proto#blocknumberresponse"}} />
+
+
+#### `ResolveBlockHash`
+<ProtoServiceMethod key={'ResolveBlockHash-1'} method={{"name":"ResolveBlockHash","description":"","requestType":"ResolveBlockHashRequest","requestLongType":"ResolveBlockHashRequest","requestFullType":"web3.ResolveBlockHashRequest","requestStreaming":false,"responseType":"ResolveBlockHashResponse","responseLongType":"ResolveBlockHashResponse","responseFullType":"web3.ResolveBlockHashResponse","responseStreaming":false,"requestTypeLink":"/protobuf/eth.proto#resolveblockhashrequest","responseTypeLink":"/protobuf/eth.proto#resolveblockhashresponse"}} />
+
+
+#### `LightBlock`
+<ProtoServiceMethod key={'LightBlock-2'} method={{"name":"LightBlock","description":"","requestType":"BlockRequest","requestLongType":"BlockRequest","requestFullType":"web3.BlockRequest","requestStreaming":false,"responseType":"LightBlockResponse","responseLongType":"LightBlockResponse","responseFullType":"web3.LightBlockResponse","responseStreaming":false,"requestTypeLink":"/protobuf/eth.proto#blockrequest","responseTypeLink":"/protobuf/eth.proto#lightblockresponse"}} />
+
+
+#### `FullBlock`
+<ProtoServiceMethod key={'FullBlock-3'} method={{"name":"FullBlock","description":"","requestType":"BlockRequest","requestLongType":"BlockRequest","requestFullType":"web3.BlockRequest","requestStreaming":false,"responseType":"FullBlockResponse","responseLongType":"FullBlockResponse","responseFullType":"web3.FullBlockResponse","responseStreaming":false,"requestTypeLink":"/protobuf/eth.proto#blockrequest","responseTypeLink":"/protobuf/eth.proto#fullblockresponse"}} />
+
+
+#### `TransactionByHash`
+<ProtoServiceMethod key={'TransactionByHash-4'} method={{"name":"TransactionByHash","description":"","requestType":"H256","requestLongType":".types.H256","requestFullType":"types.H256","requestStreaming":false,"responseType":"TransactionResponse","responseLongType":"TransactionResponse","responseFullType":"web3.TransactionResponse","responseStreaming":false,"requestTypeLink":"/protobuf/types.proto#h256","responseTypeLink":"/protobuf/eth.proto#transactionresponse"}} />
+
+
+#### `SendTransaction`
+<ProtoServiceMethod key={'SendTransaction-5'} method={{"name":"SendTransaction","description":"","requestType":"Transaction","requestLongType":"Transaction","requestFullType":"web3.Transaction","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/common.proto#transaction","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+---
+
+
+  

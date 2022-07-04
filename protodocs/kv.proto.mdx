@@ -1,0 +1,86 @@
+---
+title: kv.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `kv.proto`
+_**path** kv.proto_
+
+_**package** remote_
+
+
+
+---
+
+## Messages
+
+
+### `AccountChange`
+<ProtoMessage key={0} message={{"name":"AccountChange","longName":"AccountChange","fullName":"remote.AccountChange","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"incarnation","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"action","description":"","label":"","type":"Action","longType":"Action","fullType":"remote.Action","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#action"},{"name":"data","description":"nil if there is no UPSERT in action","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"code","description":"nil if there is no CODE in action","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"storageChanges","description":"","label":"repeated","type":"StorageChange","longType":"StorageChange","fullType":"remote.StorageChange","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#storagechange"}]}} />
+
+
+### `Cursor`
+<ProtoMessage key={1} message={{"name":"Cursor","longName":"Cursor","fullName":"remote.Cursor","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"op","description":"","label":"","type":"Op","longType":"Op","fullType":"remote.Op","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#op"},{"name":"bucketName","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"cursor","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"k","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"v","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Pair`
+<ProtoMessage key={2} message={{"name":"Pair","longName":"Pair","fullName":"remote.Pair","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"k","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"v","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"cursorID","description":"send once after new cursor open","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"txID","description":"send once after tx open. mdbx's tx.ID() - id of write transaction in db - where this changes happened","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StateChange`
+<ProtoMessage key={3} message={{"name":"StateChange","longName":"StateChange","fullName":"remote.StateChange","description":"StateChange - changes done by 1 block or by 1 unwind","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"direction","description":"","label":"","type":"Direction","longType":"Direction","fullType":"remote.Direction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#direction"},{"name":"blockHeight","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"blockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"changes","description":"","label":"repeated","type":"AccountChange","longType":"AccountChange","fullType":"remote.AccountChange","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#accountchange"},{"name":"txs","description":"enable by withTransactions=true","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StateChangeBatch`
+<ProtoMessage key={4} message={{"name":"StateChangeBatch","longName":"StateChangeBatch","fullName":"remote.StateChangeBatch","description":"StateChangeBatch - list of StateDiff done in one DB transaction","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"databaseViewID","description":"mdbx's tx.ID() - id of write transaction in db - where this changes happened","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"changeBatch","description":"","label":"repeated","type":"StateChange","longType":"StateChange","fullType":"remote.StateChange","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/kv.proto#statechange"},{"name":"pendingBlockBaseFee","description":"BaseFee of the next block to be produced","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"blockGasLimit","description":"GasLimit of the latest block - proxy for the gas limit of the next block to be produced","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StateChangeRequest`
+<ProtoMessage key={5} message={{"name":"StateChangeRequest","longName":"StateChangeRequest","fullName":"remote.StateChangeRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"withStorage","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"withTransactions","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StorageChange`
+<ProtoMessage key={6} message={{"name":"StorageChange","longName":"StorageChange","fullName":"remote.StorageChange","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"location","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"data","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+## Enums
+
+
+### `Action`
+<ProtoEnum key={0} enumb={{"name":"Action","longName":"Action","fullName":"remote.Action","description":"","values":[{"name":"STORAGE","number":"0","description":"Change only in the storage"},{"name":"UPSERT","number":"1","description":"Change of balance or nonce (and optionally storage)"},{"name":"CODE","number":"2","description":"Change of code (and optionally storage)"},{"name":"UPSERT_CODE","number":"3","description":"Change in (balance or nonce) and code (and optinally storage)"},{"name":"REMOVE","number":"4","description":"Account is deleted"}]}} />
+
+
+### `Direction`
+<ProtoEnum key={1} enumb={{"name":"Direction","longName":"Direction","fullName":"remote.Direction","description":"","values":[{"name":"FORWARD","number":"0","description":""},{"name":"UNWIND","number":"1","description":""}]}} />
+
+
+### `Op`
+<ProtoEnum key={2} enumb={{"name":"Op","longName":"Op","fullName":"remote.Op","description":"","values":[{"name":"FIRST","number":"0","description":""},{"name":"FIRST_DUP","number":"1","description":""},{"name":"SEEK","number":"2","description":""},{"name":"SEEK_BOTH","number":"3","description":""},{"name":"CURRENT","number":"4","description":""},{"name":"LAST","number":"6","description":""},{"name":"LAST_DUP","number":"7","description":""},{"name":"NEXT","number":"8","description":""},{"name":"NEXT_DUP","number":"9","description":""},{"name":"NEXT_NO_DUP","number":"11","description":""},{"name":"PREV","number":"12","description":""},{"name":"PREV_DUP","number":"13","description":""},{"name":"PREV_NO_DUP","number":"14","description":""},{"name":"SEEK_EXACT","number":"15","description":""},{"name":"SEEK_BOTH_EXACT","number":"16","description":""},{"name":"OPEN","number":"30","description":""},{"name":"CLOSE","number":"31","description":""}]}} />
+
+---
+## Services
+
+
+### `KV`
+
+Provides methods to access key-value data
+
+
+#### `Version`
+<ProtoServiceMethod key={'Version-0'} method={{"name":"Version","description":"Version returns the service version number","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"VersionReply","responseLongType":".types.VersionReply","responseFullType":"types.VersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/types.proto#versionreply"}} />
+
+
+#### `Tx`
+<ProtoServiceMethod key={'Tx-1'} method={{"name":"Tx","description":"Tx exposes read-only transactions for the key-value store\n\nWhen tx open, client must receive 1 message from server with txID\nWhen cursor open, client must receive 1 message from server with cursorID\nThen only client can initiate messages from server","requestType":"Cursor","requestLongType":"Cursor","requestFullType":"remote.Cursor","requestStreaming":true,"responseType":"Pair","responseLongType":"Pair","responseFullType":"remote.Pair","responseStreaming":true,"requestTypeLink":"/protobuf/kv.proto#cursor","responseTypeLink":"/protobuf/kv.proto#pair"}} />
+
+
+#### `StateChanges`
+<ProtoServiceMethod key={'StateChanges-2'} method={{"name":"StateChanges","description":"","requestType":"StateChangeRequest","requestLongType":"StateChangeRequest","requestFullType":"remote.StateChangeRequest","requestStreaming":false,"responseType":"StateChangeBatch","responseLongType":"StateChangeBatch","responseFullType":"remote.StateChangeBatch","responseStreaming":true,"requestTypeLink":"/protobuf/kv.proto#statechangerequest","responseTypeLink":"/protobuf/kv.proto#statechangebatch"}} />
+
+
+---
+
+
+  

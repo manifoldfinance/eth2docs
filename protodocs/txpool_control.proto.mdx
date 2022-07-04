@@ -1,0 +1,67 @@
+---
+title: txpool_control.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `txpool_control.proto`
+_**path** txpool_control.proto_
+
+_**package** txpool_control_
+
+
+
+---
+
+## Messages
+
+
+### `AccountInfo`
+<ProtoMessage key={0} message={{"name":"AccountInfo","longName":"AccountInfo","fullName":"txpool_control.AccountInfo","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"balance","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"nonce","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `AccountInfoReply`
+<ProtoMessage key={1} message={{"name":"AccountInfoReply","longName":"AccountInfoReply","fullName":"txpool_control.AccountInfoReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"balance","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"nonce","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `AccountInfoRequest`
+<ProtoMessage key={2} message={{"name":"AccountInfoRequest","longName":"AccountInfoRequest","fullName":"txpool_control.AccountInfoRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"account","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `AppliedBlock`
+<ProtoMessage key={3} message={{"name":"AppliedBlock","longName":"AppliedBlock","fullName":"txpool_control.AppliedBlock","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"parent_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"changed_accounts","description":"","label":"repeated","type":"AccountInfo","longType":"AccountInfo","fullType":"txpool_control.AccountInfo","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool_control.proto#accountinfo"}]}} />
+
+
+### `BlockDiff`
+<ProtoMessage key={4} message={{"name":"BlockDiff","longName":"BlockDiff","fullName":"txpool_control.BlockDiff","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"applied","description":"","label":"","type":"AppliedBlock","longType":"AppliedBlock","fullType":"txpool_control.AppliedBlock","ismap":false,"isoneof":true,"oneofdecl":"diff","defaultValue":"","typeLink":"/protobuf/txpool_control.proto#appliedblock"},{"name":"reverted","description":"","label":"","type":"RevertedBlock","longType":"RevertedBlock","fullType":"txpool_control.RevertedBlock","ismap":false,"isoneof":true,"oneofdecl":"diff","defaultValue":"","typeLink":"/protobuf/txpool_control.proto#revertedblock"}]}} />
+
+
+### `BlockStreamRequest`
+<ProtoMessage key={5} message={{"name":"BlockStreamRequest","longName":"BlockStreamRequest","fullName":"txpool_control.BlockStreamRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"latest","description":"","label":"","type":"Empty","longType":"google.protobuf.Empty","fullType":"google.protobuf.Empty","ismap":false,"isoneof":true,"oneofdecl":"start_with","defaultValue":"","typeLink":"/protobuf/empty.proto#empty"},{"name":"block_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":true,"oneofdecl":"start_with","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `RevertedBlock`
+<ProtoMessage key={6} message={{"name":"RevertedBlock","longName":"RevertedBlock","fullName":"txpool_control.RevertedBlock","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"reverted_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"reverted_transactions","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"new_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"new_parent","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"reverted_accounts","description":"","label":"repeated","type":"AccountInfo","longType":"AccountInfo","fullType":"txpool_control.AccountInfo","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool_control.proto#accountinfo"}]}} />
+
+---
+## Services
+
+
+### `TxpoolControl`
+
+
+
+
+#### `AccountInfo`
+<ProtoServiceMethod key={'AccountInfo-0'} method={{"name":"AccountInfo","description":"","requestType":"AccountInfoRequest","requestLongType":"AccountInfoRequest","requestFullType":"txpool_control.AccountInfoRequest","requestStreaming":false,"responseType":"AccountInfoReply","responseLongType":"AccountInfoReply","responseFullType":"txpool_control.AccountInfoReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool_control.proto#accountinforequest","responseTypeLink":"/protobuf/txpool_control.proto#accountinforeply"}} />
+
+
+#### `BlockStream`
+<ProtoServiceMethod key={'BlockStream-1'} method={{"name":"BlockStream","description":"","requestType":"BlockStreamRequest","requestLongType":"BlockStreamRequest","requestFullType":"txpool_control.BlockStreamRequest","requestStreaming":false,"responseType":"BlockDiff","responseLongType":"BlockDiff","responseFullType":"txpool_control.BlockDiff","responseStreaming":true,"requestTypeLink":"/protobuf/txpool_control.proto#blockstreamrequest","responseTypeLink":"/protobuf/txpool_control.proto#blockdiff"}} />
+
+
+---
+
+
+  

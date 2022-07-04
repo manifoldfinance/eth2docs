@@ -1,0 +1,142 @@
+---
+title: txpool.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `txpool.proto`
+_**path** txpool.proto_
+
+_**package** txpool_
+
+
+
+---
+
+## Messages
+
+
+### `AddReply`
+<ProtoMessage key={0} message={{"name":"AddReply","longName":"AddReply","fullName":"txpool.AddReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"imported","description":"","label":"repeated","type":"ImportResult","longType":"ImportResult","fullType":"txpool.ImportResult","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool.proto#importresult"},{"name":"errors","description":"","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `AddRequest`
+<ProtoMessage key={1} message={{"name":"AddRequest","longName":"AddRequest","fullName":"txpool.AddRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"rlpTxs","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `AllReply`
+<ProtoMessage key={2} message={{"name":"AllReply","longName":"AllReply","fullName":"txpool.AllReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"txs","description":"","label":"repeated","type":"Tx","longType":"AllReply.Tx","fullType":"txpool.AllReply.Tx","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool.proto#allreplytx"}]}} />
+
+
+### `AllReply.Tx`
+<ProtoMessage key={3} message={{"name":"Tx","longName":"AllReply.Tx","fullName":"txpool.AllReply.Tx","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"txnType","description":"","label":"","type":"TxnType","longType":"AllReply.TxnType","fullType":"txpool.AllReply.TxnType","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool.proto#allreplytxntype"},{"name":"sender","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"rlpTx","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `AllRequest`
+<ProtoMessage key={4} message={{"name":"AllRequest","longName":"AllRequest","fullName":"txpool.AllRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `NonceReply`
+<ProtoMessage key={5} message={{"name":"NonceReply","longName":"NonceReply","fullName":"txpool.NonceReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"found","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"nonce","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `NonceRequest`
+<ProtoMessage key={6} message={{"name":"NonceRequest","longName":"NonceRequest","fullName":"txpool.NonceRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `OnAddReply`
+<ProtoMessage key={7} message={{"name":"OnAddReply","longName":"OnAddReply","fullName":"txpool.OnAddReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"rplTxs","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `OnAddRequest`
+<ProtoMessage key={8} message={{"name":"OnAddRequest","longName":"OnAddRequest","fullName":"txpool.OnAddRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `PendingReply`
+<ProtoMessage key={9} message={{"name":"PendingReply","longName":"PendingReply","fullName":"txpool.PendingReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"txs","description":"","label":"repeated","type":"Tx","longType":"PendingReply.Tx","fullType":"txpool.PendingReply.Tx","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/txpool.proto#pendingreplytx"}]}} />
+
+
+### `PendingReply.Tx`
+<ProtoMessage key={10} message={{"name":"Tx","longName":"PendingReply.Tx","fullName":"txpool.PendingReply.Tx","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"sender","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"rlpTx","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"isLocal","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StatusReply`
+<ProtoMessage key={11} message={{"name":"StatusReply","longName":"StatusReply","fullName":"txpool.StatusReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"pendingCount","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"queuedCount","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"baseFeeCount","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StatusRequest`
+<ProtoMessage key={12} message={{"name":"StatusRequest","longName":"StatusRequest","fullName":"txpool.StatusRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `TransactionsReply`
+<ProtoMessage key={13} message={{"name":"TransactionsReply","longName":"TransactionsReply","fullName":"txpool.TransactionsReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"rlpTxs","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `TransactionsRequest`
+<ProtoMessage key={14} message={{"name":"TransactionsRequest","longName":"TransactionsRequest","fullName":"txpool.TransactionsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hashes","description":"","label":"repeated","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `TxHashes`
+<ProtoMessage key={15} message={{"name":"TxHashes","longName":"TxHashes","fullName":"txpool.TxHashes","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hashes","description":"","label":"repeated","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+---
+## Enums
+
+
+### `AllReply.TxnType`
+<ProtoEnum key={0} enumb={{"name":"TxnType","longName":"AllReply.TxnType","fullName":"txpool.AllReply.TxnType","description":"","values":[{"name":"PENDING","number":"0","description":"All currently processable transactions"},{"name":"QUEUED","number":"1","description":"Queued but non-processable transactions"},{"name":"BASE_FEE","number":"2","description":"BaseFee not enough baseFee non-processable transactions"}]}} />
+
+
+### `ImportResult`
+<ProtoEnum key={1} enumb={{"name":"ImportResult","longName":"ImportResult","fullName":"txpool.ImportResult","description":"","values":[{"name":"SUCCESS","number":"0","description":""},{"name":"ALREADY_EXISTS","number":"1","description":""},{"name":"FEE_TOO_LOW","number":"2","description":""},{"name":"STALE","number":"3","description":""},{"name":"INVALID","number":"4","description":""},{"name":"INTERNAL_ERROR","number":"5","description":""}]}} />
+
+---
+## Services
+
+
+### `Txpool`
+
+
+
+
+#### `Version`
+<ProtoServiceMethod key={'Version-0'} method={{"name":"Version","description":"Version returns the service version number","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"VersionReply","responseLongType":".types.VersionReply","responseFullType":"types.VersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/types.proto#versionreply"}} />
+
+
+#### `FindUnknown`
+<ProtoServiceMethod key={'FindUnknown-1'} method={{"name":"FindUnknown","description":"preserves incoming order, changes amount, unknown hashes will be omitted","requestType":"TxHashes","requestLongType":"TxHashes","requestFullType":"txpool.TxHashes","requestStreaming":false,"responseType":"TxHashes","responseLongType":"TxHashes","responseFullType":"txpool.TxHashes","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#txhashes","responseTypeLink":"/protobuf/txpool.proto#txhashes"}} />
+
+
+#### `Add`
+<ProtoServiceMethod key={'Add-2'} method={{"name":"Add","description":"Expecting signed transactions. Preserves incoming order and amount\nAdding txs as local (use P2P to add remote txs)","requestType":"AddRequest","requestLongType":"AddRequest","requestFullType":"txpool.AddRequest","requestStreaming":false,"responseType":"AddReply","responseLongType":"AddReply","responseFullType":"txpool.AddReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#addrequest","responseTypeLink":"/protobuf/txpool.proto#addreply"}} />
+
+
+#### `Transactions`
+<ProtoServiceMethod key={'Transactions-3'} method={{"name":"Transactions","description":"preserves incoming order and amount, if some transaction doesn't exists in pool - returns nil in this slot","requestType":"TransactionsRequest","requestLongType":"TransactionsRequest","requestFullType":"txpool.TransactionsRequest","requestStreaming":false,"responseType":"TransactionsReply","responseLongType":"TransactionsReply","responseFullType":"txpool.TransactionsReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#transactionsrequest","responseTypeLink":"/protobuf/txpool.proto#transactionsreply"}} />
+
+
+#### `All`
+<ProtoServiceMethod key={'All-4'} method={{"name":"All","description":"returns all transactions from tx pool","requestType":"AllRequest","requestLongType":"AllRequest","requestFullType":"txpool.AllRequest","requestStreaming":false,"responseType":"AllReply","responseLongType":"AllReply","responseFullType":"txpool.AllReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#allrequest","responseTypeLink":"/protobuf/txpool.proto#allreply"}} />
+
+
+#### `Pending`
+<ProtoServiceMethod key={'Pending-5'} method={{"name":"Pending","description":"Returns all pending (processable) transactions, in ready-for-mining order","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"PendingReply","responseLongType":"PendingReply","responseFullType":"txpool.PendingReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/txpool.proto#pendingreply"}} />
+
+
+#### `OnAdd`
+<ProtoServiceMethod key={'OnAdd-6'} method={{"name":"OnAdd","description":"subscribe to new transactions add event","requestType":"OnAddRequest","requestLongType":"OnAddRequest","requestFullType":"txpool.OnAddRequest","requestStreaming":false,"responseType":"OnAddReply","responseLongType":"OnAddReply","responseFullType":"txpool.OnAddReply","responseStreaming":true,"requestTypeLink":"/protobuf/txpool.proto#onaddrequest","responseTypeLink":"/protobuf/txpool.proto#onaddreply"}} />
+
+
+#### `Status`
+<ProtoServiceMethod key={'Status-7'} method={{"name":"Status","description":"returns high level status","requestType":"StatusRequest","requestLongType":"StatusRequest","requestFullType":"txpool.StatusRequest","requestStreaming":false,"responseType":"StatusReply","responseLongType":"StatusReply","responseFullType":"txpool.StatusReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#statusrequest","responseTypeLink":"/protobuf/txpool.proto#statusreply"}} />
+
+
+#### `Nonce`
+<ProtoServiceMethod key={'Nonce-8'} method={{"name":"Nonce","description":"returns nonce for given account","requestType":"NonceRequest","requestLongType":"NonceRequest","requestFullType":"txpool.NonceRequest","requestStreaming":false,"responseType":"NonceReply","responseLongType":"NonceReply","responseFullType":"txpool.NonceReply","responseStreaming":false,"requestTypeLink":"/protobuf/txpool.proto#noncerequest","responseTypeLink":"/protobuf/txpool.proto#noncereply"}} />
+
+
+---
+
+
+  
