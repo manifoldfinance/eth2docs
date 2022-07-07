@@ -1,0 +1,87 @@
+---
+title: trace.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `trace.proto`
+_**path** trace.proto_
+
+_**package** web3_
+
+
+
+---
+
+## Messages
+
+
+### `Action`
+<ProtoMessage key={0} message={{"name":"Action","longName":"Action","fullName":"web3.Action","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"call","description":"","label":"","type":"CallAction","longType":"CallAction","fullType":"web3.CallAction","ismap":false,"isoneof":true,"oneofdecl":"action","defaultValue":"","typeLink":"/protobuf/trace.proto#callaction"},{"name":"create","description":"","label":"","type":"CreateAction","longType":"CreateAction","fullType":"web3.CreateAction","ismap":false,"isoneof":true,"oneofdecl":"action","defaultValue":"","typeLink":"/protobuf/trace.proto#createaction"},{"name":"selfdestruct","description":"","label":"","type":"SelfdestructAction","longType":"SelfdestructAction","fullType":"web3.SelfdestructAction","ismap":false,"isoneof":true,"oneofdecl":"action","defaultValue":"","typeLink":"/protobuf/trace.proto#selfdestructaction"}]}} />
+
+
+### `CallAction`
+<ProtoMessage key={1} message={{"name":"CallAction","longName":"CallAction","fullName":"web3.CallAction","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"action","description":"","label":"","type":"Action","longType":"Action","fullType":"web3.Action","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#action"},{"name":"from","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"gas","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"input","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"to","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"value","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `CallData`
+<ProtoMessage key={2} message={{"name":"CallData","longName":"CallData","fullName":"web3.CallData","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"from","description":"","label":"optional","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":true,"oneofdecl":"_from","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"gas","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"gas_price","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"input","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"to","description":"","label":"optional","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":true,"oneofdecl":"_to","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"value","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `CallRequest`
+<ProtoMessage key={3} message={{"name":"CallRequest","longName":"CallRequest","fullName":"web3.CallRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"call_data","description":"","label":"repeated","type":"CallData","longType":"CallData","fullType":"web3.CallData","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#calldata"}]}} />
+
+
+### `CallResponse`
+<ProtoMessage key={4} message={{"name":"CallResponse","longName":"CallResponse","fullName":"web3.CallResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"traces","description":"","label":"repeated","type":"Trace","longType":"Trace","fullType":"web3.Trace","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#trace"}]}} />
+
+
+### `CreateAction`
+<ProtoMessage key={5} message={{"name":"CreateAction","longName":"CreateAction","fullName":"web3.CreateAction","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `FullTrace`
+<ProtoMessage key={6} message={{"name":"FullTrace","longName":"FullTrace","fullName":"web3.FullTrace","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"trace","description":"","label":"","type":"Trace","longType":"Trace","fullType":"web3.Trace","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#trace"},{"name":"state_diff","description":"","label":"","type":"StateDiff","longType":"StateDiff","fullType":"web3.StateDiff","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#statediff"},{"name":"vm_trace","description":"","label":"","type":"VmTrace","longType":"VmTrace","fullType":"web3.VmTrace","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#vmtrace"}]}} />
+
+
+### `SelfdestructAction`
+<ProtoMessage key={7} message={{"name":"SelfdestructAction","longName":"SelfdestructAction","fullName":"web3.SelfdestructAction","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `StateDiff`
+<ProtoMessage key={8} message={{"name":"StateDiff","longName":"StateDiff","fullName":"web3.StateDiff","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `Subtraces`
+<ProtoMessage key={9} message={{"name":"Subtraces","longName":"Subtraces","fullName":"web3.Subtraces","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `Trace`
+<ProtoMessage key={10} message={{"name":"Trace","longName":"Trace","fullName":"web3.Trace","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"action","description":"","label":"","type":"Action","longType":"Action","fullType":"web3.Action","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#action"},{"name":"result","description":"","label":"","type":"TraceResult","longType":"TraceResult","fullType":"web3.TraceResult","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#traceresult"},{"name":"uint64","description":"","label":"","type":"Subtraces","longType":"Subtraces","fullType":"web3.Subtraces","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/trace.proto#subtraces"},{"name":"trace_address","description":"","label":"repeated","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `TraceResult`
+<ProtoMessage key={11} message={{"name":"TraceResult","longName":"TraceResult","fullName":"web3.TraceResult","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `VmTrace`
+<ProtoMessage key={12} message={{"name":"VmTrace","longName":"VmTrace","fullName":"web3.VmTrace","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+---
+## Services
+
+
+### `TraceApi`
+
+
+
+
+#### `Call`
+<ProtoServiceMethod key={'Call-0'} method={{"name":"Call","description":"","requestType":"CallRequest","requestLongType":"CallRequest","requestFullType":"web3.CallRequest","requestStreaming":false,"responseType":"CallResponse","responseLongType":"CallResponse","responseFullType":"web3.CallResponse","responseStreaming":false,"requestTypeLink":"/protobuf/trace.proto#callrequest","responseTypeLink":"/protobuf/trace.proto#callresponse"}} />
+
+
+---
+
+
+  

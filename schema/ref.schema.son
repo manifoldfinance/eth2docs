@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "keywordLocation": "#",
+  "instanceLocation": "#",
+  "annotations": [
+    {
+      "valid": true,
+      "keywordLocation": "#/title",
+      "instanceLocation": "#",
+      "annotation": "Signing history"
+    },
+    {
+      "valid": true,
+      "keywordLocation": "#/description",
+      "instanceLocation": "#",
+      "annotation": "This schema provides a record of the blocks and attestations signed by a set of validators"
+    },
+    {
+      "valid": true,
+      "keywordLocation": "#/type",
+      "instanceLocation": "#"
+    },
+    {
+      "valid": true,
+      "keywordLocation": "#/properties",
+      "instanceLocation": "#",
+      "annotation": [
+        "metadata",
+        "data"
+      ]
+    },
+    {
+      "valid": true,
+      "keywordLocation": "#/required",
+      "instanceLocation": "#"
+    }
+  ]
+}

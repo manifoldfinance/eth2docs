@@ -5,16 +5,15 @@ on:
   push:
      paths:
       - "**/**"
-      - "!**/*.md/**"
+      
+  workflow_dispatch: {}
+
 env:
   CI: ''
   COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
   PULL_NUMBER: ${{ github.event.pull_request.number }}
   RUN_ID: ${{ github.run_id }}
   FORCE_COLOR: 2
-#  NEXT_TELEMETRY_DISABLED: 1
-#  NODE_ENV: production
-
 
 jobs:
   pipeline:
@@ -52,3 +51,18 @@ jobs:
       - name: Install project dependencies
         run: yarn run build
         id: production
+
+        if: ${{ github.event_name == 'create' && github.event.ref_type == 'tag' }}
+      - run: echo "::set-output name=date::$(date +'%Y-%m-%d')" && npm pack
+      - run: echo "Deploying tag ${{ github.ref }}"
+      
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          automatic_release_tag: 'latest'
+          prerelease: true
+          files: |
+            LICENSE.md
+            *.tgz
+        id: 'automatic_releases'
+

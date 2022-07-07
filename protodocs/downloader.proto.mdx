@@ -1,0 +1,63 @@
+---
+title: downloader.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `downloader.proto`
+_**path** downloader.proto_
+
+_**package** downloader_
+
+
+
+---
+
+## Messages
+
+
+### `DownloadItem`
+<ProtoMessage key={0} message={{"name":"DownloadItem","longName":"DownloadItem","fullName":"downloader.DownloadItem","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"path","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"torrent_hash","description":"single hash will be resolved as magnet link","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `DownloadRequest`
+<ProtoMessage key={1} message={{"name":"DownloadRequest","longName":"DownloadRequest","fullName":"downloader.DownloadRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"items","description":"single hash will be resolved as magnet link","label":"repeated","type":"DownloadItem","longType":"DownloadItem","fullType":"downloader.DownloadItem","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/downloader.proto#downloaditem"}]}} />
+
+
+### `StatsReply`
+<ProtoMessage key={2} message={{"name":"StatsReply","longName":"StatsReply","fullName":"downloader.StatsReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"metadataReady","description":"First step on startup - \"resolve metadata\":\n  - understand total amount of data to download\n  - ensure all pieces hashes available\n  - validate files after crush\n  - when all metadata ready - can start download/upload","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"filesTotal","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"peersUnique","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connectionsTotal","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"completed","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"progress","description":"","label":"","type":"float","longType":"float","fullType":"float","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"bytesCompleted","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"bytesTotal","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"uploadRate","description":"bytes/sec","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"downloadRate","description":"bytes/sec","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StatsRequest`
+<ProtoMessage key={3} message={{"name":"StatsRequest","longName":"StatsRequest","fullName":"downloader.StatsRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `VerifyRequest`
+<ProtoMessage key={4} message={{"name":"VerifyRequest","longName":"VerifyRequest","fullName":"downloader.VerifyRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+---
+## Services
+
+
+### `Downloader`
+
+
+
+
+#### `Download`
+<ProtoServiceMethod key={'Download-0'} method={{"name":"Download","description":"","requestType":"DownloadRequest","requestLongType":"DownloadRequest","requestFullType":"downloader.DownloadRequest","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/downloader.proto#downloadrequest","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+#### `Verify`
+<ProtoServiceMethod key={'Verify-1'} method={{"name":"Verify","description":"","requestType":"VerifyRequest","requestLongType":"VerifyRequest","requestFullType":"downloader.VerifyRequest","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/downloader.proto#verifyrequest","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+#### `Stats`
+<ProtoServiceMethod key={'Stats-2'} method={{"name":"Stats","description":"","requestType":"StatsRequest","requestLongType":"StatsRequest","requestFullType":"downloader.StatsRequest","requestStreaming":false,"responseType":"StatsReply","responseLongType":"StatsReply","responseFullType":"downloader.StatsReply","responseStreaming":false,"requestTypeLink":"/protobuf/downloader.proto#statsrequest","responseTypeLink":"/protobuf/downloader.proto#statsreply"}} />
+
+
+---
+
+
+  

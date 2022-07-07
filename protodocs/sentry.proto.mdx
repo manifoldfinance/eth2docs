@@ -1,0 +1,186 @@
+---
+title: sentry.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `sentry.proto`
+_**path** sentry.proto_
+
+_**package** sentry_
+
+
+
+---
+
+## Messages
+
+
+### `Forks`
+<ProtoMessage key={0} message={{"name":"Forks","longName":"Forks","fullName":"sentry.Forks","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"genesis","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"forks","description":"","label":"repeated","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `HandShakeReply`
+<ProtoMessage key={1} message={{"name":"HandShakeReply","longName":"HandShakeReply","fullName":"sentry.HandShakeReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"protocol","description":"","label":"","type":"Protocol","longType":"Protocol","fullType":"sentry.Protocol","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#protocol"}]}} />
+
+
+### `InboundMessage`
+<ProtoMessage key={2} message={{"name":"InboundMessage","longName":"InboundMessage","fullName":"sentry.InboundMessage","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"MessageId","longType":"MessageId","fullType":"sentry.MessageId","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#messageid"},{"name":"data","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"}]}} />
+
+
+### `MessagesRequest`
+<ProtoMessage key={3} message={{"name":"MessagesRequest","longName":"MessagesRequest","fullName":"sentry.MessagesRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"ids","description":"","label":"repeated","type":"MessageId","longType":"MessageId","fullType":"sentry.MessageId","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#messageid"}]}} />
+
+
+### `OutboundMessageData`
+<ProtoMessage key={4} message={{"name":"OutboundMessageData","longName":"OutboundMessageData","fullName":"sentry.OutboundMessageData","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"MessageId","longType":"MessageId","fullType":"sentry.MessageId","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#messageid"},{"name":"data","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PeerByIdReply`
+<ProtoMessage key={5} message={{"name":"PeerByIdReply","longName":"PeerByIdReply","fullName":"sentry.PeerByIdReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"peer","description":"","label":"optional","type":"PeerInfo","longType":"types.PeerInfo","fullType":"types.PeerInfo","ismap":false,"isoneof":true,"oneofdecl":"_peer","defaultValue":"","typeLink":"/protobuf/types.proto#peerinfo"}]}} />
+
+
+### `PeerByIdRequest`
+<ProtoMessage key={6} message={{"name":"PeerByIdRequest","longName":"PeerByIdRequest","fullName":"sentry.PeerByIdRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"}]}} />
+
+
+### `PeerCountReply`
+<ProtoMessage key={7} message={{"name":"PeerCountReply","longName":"PeerCountReply","fullName":"sentry.PeerCountReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"count","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PeerCountRequest`
+<ProtoMessage key={8} message={{"name":"PeerCountRequest","longName":"PeerCountRequest","fullName":"sentry.PeerCountRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `PeerEvent`
+<ProtoMessage key={9} message={{"name":"PeerEvent","longName":"PeerEvent","fullName":"sentry.PeerEvent","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"},{"name":"event_id","description":"","label":"","type":"PeerEventId","longType":"PeerEvent.PeerEventId","fullType":"sentry.PeerEvent.PeerEventId","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#peereventpeereventid"}]}} />
+
+
+### `PeerEventsRequest`
+<ProtoMessage key={10} message={{"name":"PeerEventsRequest","longName":"PeerEventsRequest","fullName":"sentry.PeerEventsRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `PeerMinBlockRequest`
+<ProtoMessage key={11} message={{"name":"PeerMinBlockRequest","longName":"PeerMinBlockRequest","fullName":"sentry.PeerMinBlockRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"},{"name":"min_block","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PeersReply`
+<ProtoMessage key={12} message={{"name":"PeersReply","longName":"PeersReply","fullName":"sentry.PeersReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peers","description":"","label":"repeated","type":"PeerInfo","longType":"types.PeerInfo","fullType":"types.PeerInfo","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#peerinfo"}]}} />
+
+
+### `PenalizePeerRequest`
+<ProtoMessage key={13} message={{"name":"PenalizePeerRequest","longName":"PenalizePeerRequest","fullName":"sentry.PenalizePeerRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"},{"name":"penalty","description":"","label":"","type":"PenaltyKind","longType":"PenaltyKind","fullType":"sentry.PenaltyKind","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#penaltykind"}]}} />
+
+
+### `SendMessageByIdRequest`
+<ProtoMessage key={14} message={{"name":"SendMessageByIdRequest","longName":"SendMessageByIdRequest","fullName":"sentry.SendMessageByIdRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"data","description":"","label":"","type":"OutboundMessageData","longType":"OutboundMessageData","fullType":"sentry.OutboundMessageData","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#outboundmessagedata"},{"name":"peer_id","description":"","label":"","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"}]}} />
+
+
+### `SendMessageByMinBlockRequest`
+<ProtoMessage key={15} message={{"name":"SendMessageByMinBlockRequest","longName":"SendMessageByMinBlockRequest","fullName":"sentry.SendMessageByMinBlockRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"data","description":"","label":"","type":"OutboundMessageData","longType":"OutboundMessageData","fullType":"sentry.OutboundMessageData","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#outboundmessagedata"},{"name":"min_block","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SendMessageToRandomPeersRequest`
+<ProtoMessage key={16} message={{"name":"SendMessageToRandomPeersRequest","longName":"SendMessageToRandomPeersRequest","fullName":"sentry.SendMessageToRandomPeersRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"data","description":"","label":"","type":"OutboundMessageData","longType":"OutboundMessageData","fullType":"sentry.OutboundMessageData","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#outboundmessagedata"},{"name":"max_peers","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SentPeers`
+<ProtoMessage key={17} message={{"name":"SentPeers","longName":"SentPeers","fullName":"sentry.SentPeers","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peers","description":"","label":"repeated","type":"H512","longType":"types.H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"}]}} />
+
+
+### `SetStatusReply`
+<ProtoMessage key={18} message={{"name":"SetStatusReply","longName":"SetStatusReply","fullName":"sentry.SetStatusReply","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `StatusData`
+<ProtoMessage key={19} message={{"name":"StatusData","longName":"StatusData","fullName":"sentry.StatusData","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"network_id","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"total_difficulty","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"best_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"fork_data","description":"","label":"","type":"Forks","longType":"Forks","fullType":"sentry.Forks","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/sentry.proto#forks"},{"name":"max_block","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+## Enums
+
+
+### `MessageId`
+<ProtoEnum key={0} enumb={{"name":"MessageId","longName":"MessageId","fullName":"sentry.MessageId","description":"======= eth 65 protocol ===========","values":[{"name":"STATUS_65","number":"0","description":""},{"name":"GET_BLOCK_HEADERS_65","number":"1","description":""},{"name":"BLOCK_HEADERS_65","number":"2","description":""},{"name":"BLOCK_HASHES_65","number":"3","description":""},{"name":"GET_BLOCK_BODIES_65","number":"4","description":""},{"name":"BLOCK_BODIES_65","number":"5","description":""},{"name":"GET_NODE_DATA_65","number":"6","description":""},{"name":"NODE_DATA_65","number":"7","description":""},{"name":"GET_RECEIPTS_65","number":"8","description":""},{"name":"RECEIPTS_65","number":"9","description":""},{"name":"NEW_BLOCK_HASHES_65","number":"10","description":""},{"name":"NEW_BLOCK_65","number":"11","description":""},{"name":"TRANSACTIONS_65","number":"12","description":""},{"name":"NEW_POOLED_TRANSACTION_HASHES_65","number":"13","description":""},{"name":"GET_POOLED_TRANSACTIONS_65","number":"14","description":""},{"name":"POOLED_TRANSACTIONS_65","number":"15","description":""},{"name":"STATUS_66","number":"17","description":"eth64 announcement messages (no id)"},{"name":"NEW_BLOCK_HASHES_66","number":"18","description":""},{"name":"NEW_BLOCK_66","number":"19","description":""},{"name":"TRANSACTIONS_66","number":"20","description":""},{"name":"NEW_POOLED_TRANSACTION_HASHES_66","number":"21","description":"eth65 announcement messages (no id)"},{"name":"GET_BLOCK_HEADERS_66","number":"22","description":"eth66 messages with request-id"},{"name":"GET_BLOCK_BODIES_66","number":"23","description":""},{"name":"GET_NODE_DATA_66","number":"24","description":""},{"name":"GET_RECEIPTS_66","number":"25","description":""},{"name":"GET_POOLED_TRANSACTIONS_66","number":"26","description":""},{"name":"BLOCK_HEADERS_66","number":"27","description":""},{"name":"BLOCK_BODIES_66","number":"28","description":""},{"name":"NODE_DATA_66","number":"29","description":""},{"name":"RECEIPTS_66","number":"30","description":""},{"name":"POOLED_TRANSACTIONS_66","number":"31","description":""}]}} />
+
+
+### `PeerEvent.PeerEventId`
+<ProtoEnum key={1} enumb={{"name":"PeerEventId","longName":"PeerEvent.PeerEventId","fullName":"sentry.PeerEvent.PeerEventId","description":"","values":[{"name":"Connect","number":"0","description":"Happens after after a successful sub-protocol handshake."},{"name":"Disconnect","number":"1","description":""}]}} />
+
+
+### `PenaltyKind`
+<ProtoEnum key={2} enumb={{"name":"PenaltyKind","longName":"PenaltyKind","fullName":"sentry.PenaltyKind","description":"","values":[{"name":"Kick","number":"0","description":""}]}} />
+
+
+### `Protocol`
+<ProtoEnum key={3} enumb={{"name":"Protocol","longName":"Protocol","fullName":"sentry.Protocol","description":"","values":[{"name":"ETH65","number":"0","description":""},{"name":"ETH66","number":"1","description":""},{"name":"ETH67","number":"2","description":""}]}} />
+
+---
+## Services
+
+
+### `Sentry`
+
+
+
+
+#### `SetStatus`
+<ProtoServiceMethod key={'SetStatus-0'} method={{"name":"SetStatus","description":"SetStatus - force new ETH client state of sentry - network_id, max_block, etc...","requestType":"StatusData","requestLongType":"StatusData","requestFullType":"sentry.StatusData","requestStreaming":false,"responseType":"SetStatusReply","responseLongType":"SetStatusReply","responseFullType":"sentry.SetStatusReply","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#statusdata","responseTypeLink":"/protobuf/sentry.proto#setstatusreply"}} />
+
+
+#### `PenalizePeer`
+<ProtoServiceMethod key={'PenalizePeer-1'} method={{"name":"PenalizePeer","description":"","requestType":"PenalizePeerRequest","requestLongType":"PenalizePeerRequest","requestFullType":"sentry.PenalizePeerRequest","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#penalizepeerrequest","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+#### `PeerMinBlock`
+<ProtoServiceMethod key={'PeerMinBlock-2'} method={{"name":"PeerMinBlock","description":"","requestType":"PeerMinBlockRequest","requestLongType":"PeerMinBlockRequest","requestFullType":"sentry.PeerMinBlockRequest","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#peerminblockrequest","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+#### `HandShake`
+<ProtoServiceMethod key={'HandShake-3'} method={{"name":"HandShake","description":"HandShake - pre-requirement for all Send* methods - returns ETH protocol version,\nwithout knowledge of protocol - impossible encode correct P2P message","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"HandShakeReply","responseLongType":"HandShakeReply","responseFullType":"sentry.HandShakeReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/sentry.proto#handshakereply"}} />
+
+
+#### `SendMessageByMinBlock`
+<ProtoServiceMethod key={'SendMessageByMinBlock-4'} method={{"name":"SendMessageByMinBlock","description":"","requestType":"SendMessageByMinBlockRequest","requestLongType":"SendMessageByMinBlockRequest","requestFullType":"sentry.SendMessageByMinBlockRequest","requestStreaming":false,"responseType":"SentPeers","responseLongType":"SentPeers","responseFullType":"sentry.SentPeers","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#sendmessagebyminblockrequest","responseTypeLink":"/protobuf/sentry.proto#sentpeers"}} />
+
+
+#### `SendMessageById`
+<ProtoServiceMethod key={'SendMessageById-5'} method={{"name":"SendMessageById","description":"","requestType":"SendMessageByIdRequest","requestLongType":"SendMessageByIdRequest","requestFullType":"sentry.SendMessageByIdRequest","requestStreaming":false,"responseType":"SentPeers","responseLongType":"SentPeers","responseFullType":"sentry.SentPeers","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#sendmessagebyidrequest","responseTypeLink":"/protobuf/sentry.proto#sentpeers"}} />
+
+
+#### `SendMessageToRandomPeers`
+<ProtoServiceMethod key={'SendMessageToRandomPeers-6'} method={{"name":"SendMessageToRandomPeers","description":"","requestType":"SendMessageToRandomPeersRequest","requestLongType":"SendMessageToRandomPeersRequest","requestFullType":"sentry.SendMessageToRandomPeersRequest","requestStreaming":false,"responseType":"SentPeers","responseLongType":"SentPeers","responseFullType":"sentry.SentPeers","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#sendmessagetorandompeersrequest","responseTypeLink":"/protobuf/sentry.proto#sentpeers"}} />
+
+
+#### `SendMessageToAll`
+<ProtoServiceMethod key={'SendMessageToAll-7'} method={{"name":"SendMessageToAll","description":"","requestType":"OutboundMessageData","requestLongType":"OutboundMessageData","requestFullType":"sentry.OutboundMessageData","requestStreaming":false,"responseType":"SentPeers","responseLongType":"SentPeers","responseFullType":"sentry.SentPeers","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#outboundmessagedata","responseTypeLink":"/protobuf/sentry.proto#sentpeers"}} />
+
+
+#### `Messages`
+<ProtoServiceMethod key={'Messages-8'} method={{"name":"Messages","description":"Subscribe to receive messages.\nCalling multiple times with a different set of ids starts separate streams.\nIt is possible to subscribe to the same set if ids more than once.","requestType":"MessagesRequest","requestLongType":"MessagesRequest","requestFullType":"sentry.MessagesRequest","requestStreaming":false,"responseType":"InboundMessage","responseLongType":"InboundMessage","responseFullType":"sentry.InboundMessage","responseStreaming":true,"requestTypeLink":"/protobuf/sentry.proto#messagesrequest","responseTypeLink":"/protobuf/sentry.proto#inboundmessage"}} />
+
+
+#### `Peers`
+<ProtoServiceMethod key={'Peers-9'} method={{"name":"Peers","description":"","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"PeersReply","responseLongType":"PeersReply","responseFullType":"sentry.PeersReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/sentry.proto#peersreply"}} />
+
+
+#### `PeerCount`
+<ProtoServiceMethod key={'PeerCount-10'} method={{"name":"PeerCount","description":"","requestType":"PeerCountRequest","requestLongType":"PeerCountRequest","requestFullType":"sentry.PeerCountRequest","requestStreaming":false,"responseType":"PeerCountReply","responseLongType":"PeerCountReply","responseFullType":"sentry.PeerCountReply","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#peercountrequest","responseTypeLink":"/protobuf/sentry.proto#peercountreply"}} />
+
+
+#### `PeerById`
+<ProtoServiceMethod key={'PeerById-11'} method={{"name":"PeerById","description":"","requestType":"PeerByIdRequest","requestLongType":"PeerByIdRequest","requestFullType":"sentry.PeerByIdRequest","requestStreaming":false,"responseType":"PeerByIdReply","responseLongType":"PeerByIdReply","responseFullType":"sentry.PeerByIdReply","responseStreaming":false,"requestTypeLink":"/protobuf/sentry.proto#peerbyidrequest","responseTypeLink":"/protobuf/sentry.proto#peerbyidreply"}} />
+
+
+#### `PeerEvents`
+<ProtoServiceMethod key={'PeerEvents-12'} method={{"name":"PeerEvents","description":"Subscribe to notifications about connected or lost peers.","requestType":"PeerEventsRequest","requestLongType":"PeerEventsRequest","requestFullType":"sentry.PeerEventsRequest","requestStreaming":false,"responseType":"PeerEvent","responseLongType":"PeerEvent","responseFullType":"sentry.PeerEvent","responseStreaming":true,"requestTypeLink":"/protobuf/sentry.proto#peereventsrequest","responseTypeLink":"/protobuf/sentry.proto#peerevent"}} />
+
+
+#### `NodeInfo`
+<ProtoServiceMethod key={'NodeInfo-13'} method={{"name":"NodeInfo","description":"NodeInfo returns a collection of metadata known about the host.","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"NodeInfoReply","responseLongType":".types.NodeInfoReply","responseFullType":"types.NodeInfoReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/types.proto#nodeinforeply"}} />
+
+
+---
+
+
+  

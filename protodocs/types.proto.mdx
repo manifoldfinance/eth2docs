@@ -1,0 +1,66 @@
+---
+title: types.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `types.proto`
+_**path** types.proto_
+
+_**package** types_
+
+
+
+---
+
+## Messages
+
+
+### `ExecutionPayload`
+<ProtoMessage key={0} message={{"name":"ExecutionPayload","longName":"ExecutionPayload","fullName":"types.ExecutionPayload","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"parentHash","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"coinbase","description":"","label":"","type":"H160","longType":"H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"stateRoot","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"receiptRoot","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"logsBloom","description":"","label":"","type":"H2048","longType":"H2048","fullType":"types.H2048","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h2048"},{"name":"prevRandao","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"blockNumber","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"gasLimit","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"gasUsed","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"timestamp","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"extraData","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"baseFeePerGas","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"blockHash","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"transactions","description":"Array of transaction objects, each object is a byte list. \nSee https://github.com/ethereum/execution-apis/blob/v1.0.0-alpha.2/src/engine/interop/specification.md","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `H1024`
+<ProtoMessage key={1} message={{"name":"H1024","longName":"H1024","fullName":"types.H1024","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"H512","longType":"H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"},{"name":"lo","description":"","label":"","type":"H512","longType":"H512","fullType":"types.H512","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h512"}]}} />
+
+
+### `H128`
+<ProtoMessage key={2} message={{"name":"H128","longName":"H128","fullName":"types.H128","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"lo","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `H160`
+<ProtoMessage key={3} message={{"name":"H160","longName":"H160","fullName":"types.H160","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"H128","longType":"H128","fullType":"types.H128","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h128"},{"name":"lo","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `H2048`
+<ProtoMessage key={4} message={{"name":"H2048","longName":"H2048","fullName":"types.H2048","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"H1024","longType":"H1024","fullType":"types.H1024","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h1024"},{"name":"lo","description":"","label":"","type":"H1024","longType":"H1024","fullType":"types.H1024","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h1024"}]}} />
+
+
+### `H256`
+<ProtoMessage key={5} message={{"name":"H256","longName":"H256","fullName":"types.H256","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"H128","longType":"H128","fullType":"types.H128","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h128"},{"name":"lo","description":"","label":"","type":"H128","longType":"H128","fullType":"types.H128","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h128"}]}} />
+
+
+### `H512`
+<ProtoMessage key={6} message={{"name":"H512","longName":"H512","fullName":"types.H512","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hi","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"lo","description":"","label":"","type":"H256","longType":"H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `NodeInfoPorts`
+<ProtoMessage key={7} message={{"name":"NodeInfoPorts","longName":"NodeInfoPorts","fullName":"types.NodeInfoPorts","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"discovery","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"listener","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `NodeInfoReply`
+<ProtoMessage key={8} message={{"name":"NodeInfoReply","longName":"NodeInfoReply","fullName":"types.NodeInfoReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"name","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"enode","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"enr","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"ports","description":"","label":"","type":"NodeInfoPorts","longType":"NodeInfoPorts","fullType":"types.NodeInfoPorts","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#nodeinfoports"},{"name":"listenerAddr","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"protocols","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PeerInfo`
+<ProtoMessage key={9} message={{"name":"PeerInfo","longName":"PeerInfo","fullName":"types.PeerInfo","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"name","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"enode","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"enr","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"caps","description":"","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connLocalAddr","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connRemoteAddr","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connIsInbound","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connIsTrusted","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"connIsStatic","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `VersionReply`
+<ProtoMessage key={10} message={{"name":"VersionReply","longName":"VersionReply","fullName":"types.VersionReply","description":"Reply message containing the current service version on the service side","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"major","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"minor","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"patch","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+
+
+  

@@ -1,0 +1,170 @@
+---
+title: consensus.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `consensus.proto`
+_**path** consensus.proto_
+
+_**package** consensus_
+
+
+
+---
+
+## Messages
+
+
+### `Block`
+<ProtoMessage key={0} message={{"name":"Block","longName":"Block","fullName":"consensus.Block","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"},{"name":"uncles","description":"","label":"repeated","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"},{"name":"transactions","description":"","label":"repeated","type":"Transaction","longType":"Transaction","fullType":"consensus.Transaction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#transaction"},{"name":"total_difficulty","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `BlockHeader`
+<ProtoMessage key={1} message={{"name":"BlockHeader","longName":"BlockHeader","fullName":"consensus.BlockHeader","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"template","description":"","label":"","type":"Template","longType":"Template","fullType":"consensus.Template","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#template"},{"name":"uncle_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"root_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"tx_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"receipt_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"bloom","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"gas_used","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"mix_digest","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `ChainSpecMessage`
+<ProtoMessage key={2} message={{"name":"ChainSpecMessage","longName":"ChainSpecMessage","fullName":"consensus.ChainSpecMessage","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"mechanism","description":"Name of consensus mechanism, e.g. ethash, clique, aura","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"mechanism_config","description":"Configuration of specific consensus mechanism - format is specific to the mechanism","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"genesis","description":"Description of genesis block","label":"","type":"Genesis","longType":"Genesis","fullType":"consensus.Genesis","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#genesis"},{"name":"forks","description":"Description of forks (upgrades)","label":"repeated","type":"Fork","longType":"Fork","fullType":"consensus.Fork","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#fork"}]}} />
+
+
+### `Error`
+<ProtoMessage key={3} message={{"name":"Error","longName":"Error","fullName":"consensus.Error","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"description","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `FinalizeRequest`
+<ProtoMessage key={4} message={{"name":"FinalizeRequest","longName":"FinalizeRequest","fullName":"consensus.FinalizeRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"},{"name":"uncles","description":"","label":"repeated","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"}]}} />
+
+
+### `FinalizeResponse`
+<ProtoMessage key={5} message={{"name":"FinalizeResponse","longName":"FinalizeResponse","fullName":"consensus.FinalizeResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"},{"name":"miner_reward","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"uncle_rewards","description":"","label":"repeated","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `Fork`
+<ProtoMessage key={6} message={{"name":"Fork","longName":"Fork","fullName":"consensus.Fork","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"name","description":"Code name of the fork","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"number","description":"First block number at which rules of the fork activate","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"chain_id","description":"Chain id starting from this fork until the next fork","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `Genesis`
+<ProtoMessage key={7} message={{"name":"Genesis","longName":"Genesis","fullName":"consensus.Genesis","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"chain_id","description":"Chain id starting from genesis block and until the first fork","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"template","description":"Genesis header without values like \"uncle hash\", \"tx hash\" and \"state root\" calculated","label":"","type":"Template","longType":"Template","fullType":"consensus.Template","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#template"}]}} />
+
+
+### `GetAuthorRequest`
+<ProtoMessage key={8} message={{"name":"GetAuthorRequest","longName":"GetAuthorRequest","fullName":"consensus.GetAuthorRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"}]}} />
+
+
+### `GetAuthorResponse`
+<ProtoMessage key={9} message={{"name":"GetAuthorResponse","longName":"GetAuthorResponse","fullName":"consensus.GetAuthorResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"},{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `HeadersRequest`
+<ProtoMessage key={10} message={{"name":"HeadersRequest","longName":"HeadersRequest","fullName":"consensus.HeadersRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hash","description":"Hash of the highest header requested","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"amount","description":"Number of headers requested","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `HeadersResponse`
+<ProtoMessage key={11} message={{"name":"HeadersResponse","longName":"HeadersResponse","fullName":"consensus.HeadersResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"}]}} />
+
+
+### `PrepareRequest`
+<ProtoMessage key={12} message={{"name":"PrepareRequest","longName":"PrepareRequest","fullName":"consensus.PrepareRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"}]}} />
+
+
+### `PrepareResponse`
+<ProtoMessage key={13} message={{"name":"PrepareResponse","longName":"PrepareResponse","fullName":"consensus.PrepareResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"}]}} />
+
+
+### `Result`
+<ProtoMessage key={14} message={{"name":"Result","longName":"Result","fullName":"consensus.Result","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"ok","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"error","description":"","label":"optional","type":"Error","longType":"Error","fullType":"consensus.Error","ismap":false,"isoneof":true,"oneofdecl":"_error","defaultValue":"","typeLink":"/protobuf/consensus.proto#error"}]}} />
+
+
+### `SealBlockRequest`
+<ProtoMessage key={15} message={{"name":"SealBlockRequest","longName":"SealBlockRequest","fullName":"consensus.SealBlockRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"},{"name":"block","description":"","label":"","type":"Block","longType":"Block","fullType":"consensus.Block","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#block"}]}} />
+
+
+### `SealBlockResponse`
+<ProtoMessage key={16} message={{"name":"SealBlockResponse","longName":"SealBlockResponse","fullName":"consensus.SealBlockResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"},{"name":"block","description":"","label":"","type":"Block","longType":"Block","fullType":"consensus.Block","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#block"}]}} />
+
+
+### `StartTestCaseMessage`
+<ProtoMessage key={17} message={{"name":"StartTestCaseMessage","longName":"StartTestCaseMessage","fullName":"consensus.StartTestCaseMessage","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"mechanism","description":"Consensus mechanism used in the test case","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"config","description":"Configuration specific to the consensus engine tested","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Template`
+<ProtoMessage key={18} message={{"name":"Template","longName":"Template","fullName":"consensus.Template","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"parent_hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"coinbase","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"difficulty","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"number","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"gas_limit","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"time","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"extra","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"nonce","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Transaction`
+<ProtoMessage key={19} message={{"name":"Transaction","longName":"Transaction","fullName":"consensus.Transaction","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `VerifyHeaderRequest`
+<ProtoMessage key={20} message={{"name":"VerifyHeaderRequest","longName":"VerifyHeaderRequest","fullName":"consensus.VerifyHeaderRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"header","description":"","label":"","type":"BlockHeader","longType":"BlockHeader","fullType":"consensus.BlockHeader","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#blockheader"},{"name":"seal","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `VerifyHeaderResponse`
+<ProtoMessage key={21} message={{"name":"VerifyHeaderResponse","longName":"VerifyHeaderResponse","fullName":"consensus.VerifyHeaderResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"hash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"},{"name":"finaliseCode","description":"Code (in TEVM to execute at the end of the block to finalise it according to the consensus engine rules)","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `VerifyUnclesRequest`
+<ProtoMessage key={22} message={{"name":"VerifyUnclesRequest","longName":"VerifyUnclesRequest","fullName":"consensus.VerifyUnclesRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"block","description":"","label":"","type":"Block","longType":"Block","fullType":"consensus.Block","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#block"}]}} />
+
+
+### `VerifyUnclesResponse`
+<ProtoMessage key={23} message={{"name":"VerifyUnclesResponse","longName":"VerifyUnclesResponse","fullName":"consensus.VerifyUnclesResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"result","description":"","label":"","type":"Result","longType":"Result","fullType":"consensus.Result","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/consensus.proto#result"}]}} />
+
+---
+## Services
+
+
+### `ConsensusEngine`
+
+
+
+
+#### `GetAuthor`
+<ProtoServiceMethod key={'GetAuthor-0'} method={{"name":"GetAuthor","description":"","requestType":"GetAuthorRequest","requestLongType":"GetAuthorRequest","requestFullType":"consensus.GetAuthorRequest","requestStreaming":false,"responseType":"GetAuthorResponse","responseLongType":"GetAuthorResponse","responseFullType":"consensus.GetAuthorResponse","responseStreaming":false,"requestTypeLink":"/protobuf/consensus.proto#getauthorrequest","responseTypeLink":"/protobuf/consensus.proto#getauthorresponse"}} />
+
+
+#### `ChainSpec`
+<ProtoServiceMethod key={'ChainSpec-1'} method={{"name":"ChainSpec","description":"","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"ChainSpecMessage","responseLongType":"ChainSpecMessage","responseFullType":"consensus.ChainSpecMessage","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/consensus.proto#chainspecmessage"}} />
+
+
+#### `VerifyHeaders`
+<ProtoServiceMethod key={'VerifyHeaders-2'} method={{"name":"VerifyHeaders","description":"Core requests verifications from the Consensus Engine via this function","requestType":"VerifyHeaderRequest","requestLongType":"VerifyHeaderRequest","requestFullType":"consensus.VerifyHeaderRequest","requestStreaming":true,"responseType":"VerifyHeaderResponse","responseLongType":"VerifyHeaderResponse","responseFullType":"consensus.VerifyHeaderResponse","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#verifyheaderrequest","responseTypeLink":"/protobuf/consensus.proto#verifyheaderresponse"}} />
+
+
+#### `ProvideHeaders`
+<ProtoServiceMethod key={'ProvideHeaders-3'} method={{"name":"ProvideHeaders","description":"Consensis Engine may ask for extra informaton (more headers) from the core, and these requests are coming through the stream\nreturned by the ProvideHeaders function","requestType":"HeadersResponse","requestLongType":"HeadersResponse","requestFullType":"consensus.HeadersResponse","requestStreaming":true,"responseType":"HeadersRequest","responseLongType":"HeadersRequest","responseFullType":"consensus.HeadersRequest","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#headersresponse","responseTypeLink":"/protobuf/consensus.proto#headersrequest"}} />
+
+
+#### `VerifyUncles`
+<ProtoServiceMethod key={'VerifyUncles-4'} method={{"name":"VerifyUncles","description":"","requestType":"VerifyUnclesRequest","requestLongType":"VerifyUnclesRequest","requestFullType":"consensus.VerifyUnclesRequest","requestStreaming":true,"responseType":"VerifyUnclesResponse","responseLongType":"VerifyUnclesResponse","responseFullType":"consensus.VerifyUnclesResponse","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#verifyunclesrequest","responseTypeLink":"/protobuf/consensus.proto#verifyunclesresponse"}} />
+
+
+#### `Prepare`
+<ProtoServiceMethod key={'Prepare-5'} method={{"name":"Prepare","description":"","requestType":"PrepareRequest","requestLongType":"PrepareRequest","requestFullType":"consensus.PrepareRequest","requestStreaming":true,"responseType":"PrepareResponse","responseLongType":"PrepareResponse","responseFullType":"consensus.PrepareResponse","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#preparerequest","responseTypeLink":"/protobuf/consensus.proto#prepareresponse"}} />
+
+
+#### `Finalize`
+<ProtoServiceMethod key={'Finalize-6'} method={{"name":"Finalize","description":"","requestType":"FinalizeRequest","requestLongType":"FinalizeRequest","requestFullType":"consensus.FinalizeRequest","requestStreaming":true,"responseType":"FinalizeResponse","responseLongType":"FinalizeResponse","responseFullType":"consensus.FinalizeResponse","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#finalizerequest","responseTypeLink":"/protobuf/consensus.proto#finalizeresponse"}} />
+
+
+#### `Seal`
+<ProtoServiceMethod key={'Seal-7'} method={{"name":"Seal","description":"","requestType":"SealBlockRequest","requestLongType":"SealBlockRequest","requestFullType":"consensus.SealBlockRequest","requestStreaming":false,"responseType":"SealBlockResponse","responseLongType":"SealBlockResponse","responseFullType":"consensus.SealBlockResponse","responseStreaming":true,"requestTypeLink":"/protobuf/consensus.proto#sealblockrequest","responseTypeLink":"/protobuf/consensus.proto#sealblockresponse"}} />
+
+
+
+### `Test`
+
+Test is only run by consensus engine in the testing mode, and allows the test driver to inject the Configuration
+(which includes chain spec) into the Consensus Engine and reset it's state
+
+
+#### `StartTestCase`
+<ProtoServiceMethod key={'StartTestCase-0'} method={{"name":"StartTestCase","description":"","requestType":"StartTestCaseMessage","requestLongType":"StartTestCaseMessage","requestFullType":"consensus.StartTestCaseMessage","requestStreaming":false,"responseType":"Empty","responseLongType":".google.protobuf.Empty","responseFullType":"google.protobuf.Empty","responseStreaming":false,"requestTypeLink":"/protobuf/consensus.proto#starttestcasemessage","responseTypeLink":"/protobuf/empty.proto#empty"}} />
+
+
+---
+
+
+  

@@ -1,0 +1,210 @@
+---
+title: ethbackend.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `ethbackend.proto`
+_**path** ethbackend.proto_
+
+_**package** remote_
+
+
+
+---
+
+## Messages
+
+
+### `BlockReply`
+<ProtoMessage key={0} message={{"name":"BlockReply","longName":"BlockReply","fullName":"remote.BlockReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"blockRlp","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"senders","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `BlockRequest`
+<ProtoMessage key={1} message={{"name":"BlockRequest","longName":"BlockRequest","fullName":"remote.BlockRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"blockHeight","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"blockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `ClientVersionReply`
+<ProtoMessage key={2} message={{"name":"ClientVersionReply","longName":"ClientVersionReply","fullName":"remote.ClientVersionReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"nodeName","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `ClientVersionRequest`
+<ProtoMessage key={3} message={{"name":"ClientVersionRequest","longName":"ClientVersionRequest","fullName":"remote.ClientVersionRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `EngineForkChoiceState`
+<ProtoMessage key={4} message={{"name":"EngineForkChoiceState","longName":"EngineForkChoiceState","fullName":"remote.EngineForkChoiceState","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"headBlockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"safeBlockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"finalizedBlockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `EngineForkChoiceUpdatedReply`
+<ProtoMessage key={5} message={{"name":"EngineForkChoiceUpdatedReply","longName":"EngineForkChoiceUpdatedReply","fullName":"remote.EngineForkChoiceUpdatedReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"payloadStatus","description":"","label":"","type":"EnginePayloadStatus","longType":"EnginePayloadStatus","fullType":"remote.EnginePayloadStatus","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#enginepayloadstatus"},{"name":"payloadId","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `EngineForkChoiceUpdatedRequest`
+<ProtoMessage key={6} message={{"name":"EngineForkChoiceUpdatedRequest","longName":"EngineForkChoiceUpdatedRequest","fullName":"remote.EngineForkChoiceUpdatedRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"forkchoiceState","description":"","label":"","type":"EngineForkChoiceState","longType":"EngineForkChoiceState","fullType":"remote.EngineForkChoiceState","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#engineforkchoicestate"},{"name":"payloadAttributes","description":"","label":"","type":"EnginePayloadAttributes","longType":"EnginePayloadAttributes","fullType":"remote.EnginePayloadAttributes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#enginepayloadattributes"}]}} />
+
+
+### `EngineGetPayloadRequest`
+<ProtoMessage key={7} message={{"name":"EngineGetPayloadRequest","longName":"EngineGetPayloadRequest","fullName":"remote.EngineGetPayloadRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"payloadId","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `EnginePayloadAttributes`
+<ProtoMessage key={8} message={{"name":"EnginePayloadAttributes","longName":"EnginePayloadAttributes","fullName":"remote.EnginePayloadAttributes","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"timestamp","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"prevRandao","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"suggestedFeeRecipient","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `EnginePayloadStatus`
+<ProtoMessage key={9} message={{"name":"EnginePayloadStatus","longName":"EnginePayloadStatus","fullName":"remote.EnginePayloadStatus","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"status","description":"","label":"","type":"EngineStatus","longType":"EngineStatus","fullType":"remote.EngineStatus","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#enginestatus"},{"name":"latestValidHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"validationError","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `EtherbaseReply`
+<ProtoMessage key={10} message={{"name":"EtherbaseReply","longName":"EtherbaseReply","fullName":"remote.EtherbaseReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"}]}} />
+
+
+### `EtherbaseRequest`
+<ProtoMessage key={11} message={{"name":"EtherbaseRequest","longName":"EtherbaseRequest","fullName":"remote.EtherbaseRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `LogsFilterRequest`
+<ProtoMessage key={12} message={{"name":"LogsFilterRequest","longName":"LogsFilterRequest","fullName":"remote.LogsFilterRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"allAddresses","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"addresses","description":"","label":"repeated","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"allTopics","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"topics","description":"","label":"repeated","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+
+### `NetPeerCountReply`
+<ProtoMessage key={13} message={{"name":"NetPeerCountReply","longName":"NetPeerCountReply","fullName":"remote.NetPeerCountReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"count","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `NetPeerCountRequest`
+<ProtoMessage key={14} message={{"name":"NetPeerCountRequest","longName":"NetPeerCountRequest","fullName":"remote.NetPeerCountRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `NetVersionReply`
+<ProtoMessage key={15} message={{"name":"NetVersionReply","longName":"NetVersionReply","fullName":"remote.NetVersionReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `NetVersionRequest`
+<ProtoMessage key={16} message={{"name":"NetVersionRequest","longName":"NetVersionRequest","fullName":"remote.NetVersionRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `NodesInfoReply`
+<ProtoMessage key={17} message={{"name":"NodesInfoReply","longName":"NodesInfoReply","fullName":"remote.NodesInfoReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"nodesInfo","description":"","label":"repeated","type":"NodeInfoReply","longType":"types.NodeInfoReply","fullType":"types.NodeInfoReply","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#nodeinforeply"}]}} />
+
+
+### `NodesInfoRequest`
+<ProtoMessage key={18} message={{"name":"NodesInfoRequest","longName":"NodesInfoRequest","fullName":"remote.NodesInfoRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"limit","description":"","label":"","type":"uint32","longType":"uint32","fullType":"uint32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PeersReply`
+<ProtoMessage key={19} message={{"name":"PeersReply","longName":"PeersReply","fullName":"remote.PeersReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peers","description":"","label":"repeated","type":"PeerInfo","longType":"types.PeerInfo","fullType":"types.PeerInfo","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#peerinfo"}]}} />
+
+
+### `ProtocolVersionReply`
+<ProtoMessage key={20} message={{"name":"ProtocolVersionReply","longName":"ProtocolVersionReply","fullName":"remote.ProtocolVersionReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `ProtocolVersionRequest`
+<ProtoMessage key={21} message={{"name":"ProtocolVersionRequest","longName":"ProtocolVersionRequest","fullName":"remote.ProtocolVersionRequest","description":"","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `SubscribeLogsReply`
+<ProtoMessage key={22} message={{"name":"SubscribeLogsReply","longName":"SubscribeLogsReply","fullName":"remote.SubscribeLogsReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"H160","longType":"types.H160","fullType":"types.H160","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h160"},{"name":"blockHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"blockNumber","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"data","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"logIndex","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"topics","description":"","label":"repeated","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"transactionHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"},{"name":"transactionIndex","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"removed","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SubscribeReply`
+<ProtoMessage key={23} message={{"name":"SubscribeReply","longName":"SubscribeReply","fullName":"remote.SubscribeReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"type","description":"","label":"","type":"Event","longType":"Event","fullType":"remote.Event","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#event"},{"name":"data","description":"serialized data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SubscribeRequest`
+<ProtoMessage key={24} message={{"name":"SubscribeRequest","longName":"SubscribeRequest","fullName":"remote.SubscribeRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"type","description":"","label":"","type":"Event","longType":"Event","fullType":"remote.Event","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/ethbackend.proto#event"}]}} />
+
+
+### `TxnLookupReply`
+<ProtoMessage key={25} message={{"name":"TxnLookupReply","longName":"TxnLookupReply","fullName":"remote.TxnLookupReply","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"blockNumber","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `TxnLookupRequest`
+<ProtoMessage key={26} message={{"name":"TxnLookupRequest","longName":"TxnLookupRequest","fullName":"remote.TxnLookupRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"txnHash","description":"","label":"","type":"H256","longType":"types.H256","fullType":"types.H256","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protobuf/types.proto#h256"}]}} />
+
+---
+## Enums
+
+
+### `EngineStatus`
+<ProtoEnum key={0} enumb={{"name":"EngineStatus","longName":"EngineStatus","fullName":"remote.EngineStatus","description":"","values":[{"name":"VALID","number":"0","description":""},{"name":"INVALID","number":"1","description":""},{"name":"SYNCING","number":"2","description":""},{"name":"ACCEPTED","number":"3","description":""},{"name":"INVALID_BLOCK_HASH","number":"4","description":""}]}} />
+
+
+### `Event`
+<ProtoEnum key={1} enumb={{"name":"Event","longName":"Event","fullName":"remote.Event","description":"","values":[{"name":"HEADER","number":"0","description":""},{"name":"PENDING_LOGS","number":"1","description":""},{"name":"PENDING_BLOCK","number":"2","description":""},{"name":"NEW_SNAPSHOT","number":"3","description":"NEW_SNAPSHOT - one or many new snapshots (of snapshot sync) were created,\nclient need to close old file descriptors and open new (on new segments),\nthen server can remove old files"}]}} />
+
+---
+## Services
+
+
+### `ETHBACKEND`
+
+
+
+
+#### `Etherbase`
+<ProtoServiceMethod key={'Etherbase-0'} method={{"name":"Etherbase","description":"","requestType":"EtherbaseRequest","requestLongType":"EtherbaseRequest","requestFullType":"remote.EtherbaseRequest","requestStreaming":false,"responseType":"EtherbaseReply","responseLongType":"EtherbaseReply","responseFullType":"remote.EtherbaseReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#etherbaserequest","responseTypeLink":"/protobuf/ethbackend.proto#etherbasereply"}} />
+
+
+#### `NetVersion`
+<ProtoServiceMethod key={'NetVersion-1'} method={{"name":"NetVersion","description":"","requestType":"NetVersionRequest","requestLongType":"NetVersionRequest","requestFullType":"remote.NetVersionRequest","requestStreaming":false,"responseType":"NetVersionReply","responseLongType":"NetVersionReply","responseFullType":"remote.NetVersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#netversionrequest","responseTypeLink":"/protobuf/ethbackend.proto#netversionreply"}} />
+
+
+#### `NetPeerCount`
+<ProtoServiceMethod key={'NetPeerCount-2'} method={{"name":"NetPeerCount","description":"","requestType":"NetPeerCountRequest","requestLongType":"NetPeerCountRequest","requestFullType":"remote.NetPeerCountRequest","requestStreaming":false,"responseType":"NetPeerCountReply","responseLongType":"NetPeerCountReply","responseFullType":"remote.NetPeerCountReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#netpeercountrequest","responseTypeLink":"/protobuf/ethbackend.proto#netpeercountreply"}} />
+
+
+#### `EngineGetPayloadV1`
+<ProtoServiceMethod key={'EngineGetPayloadV1-3'} method={{"name":"EngineGetPayloadV1","description":"Fetch Execution Payload using its ID.","requestType":"EngineGetPayloadRequest","requestLongType":"EngineGetPayloadRequest","requestFullType":"remote.EngineGetPayloadRequest","requestStreaming":false,"responseType":"ExecutionPayload","responseLongType":".types.ExecutionPayload","responseFullType":"types.ExecutionPayload","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#enginegetpayloadrequest","responseTypeLink":"/protobuf/types.proto#executionpayload"}} />
+
+
+#### `EngineNewPayloadV1`
+<ProtoServiceMethod key={'EngineNewPayloadV1-4'} method={{"name":"EngineNewPayloadV1","description":"Validate and possibly execute the payload.","requestType":"ExecutionPayload","requestLongType":".types.ExecutionPayload","requestFullType":"types.ExecutionPayload","requestStreaming":false,"responseType":"EnginePayloadStatus","responseLongType":"EnginePayloadStatus","responseFullType":"remote.EnginePayloadStatus","responseStreaming":false,"requestTypeLink":"/protobuf/types.proto#executionpayload","responseTypeLink":"/protobuf/ethbackend.proto#enginepayloadstatus"}} />
+
+
+#### `EngineForkChoiceUpdatedV1`
+<ProtoServiceMethod key={'EngineForkChoiceUpdatedV1-5'} method={{"name":"EngineForkChoiceUpdatedV1","description":"Update fork choice","requestType":"EngineForkChoiceUpdatedRequest","requestLongType":"EngineForkChoiceUpdatedRequest","requestFullType":"remote.EngineForkChoiceUpdatedRequest","requestStreaming":false,"responseType":"EngineForkChoiceUpdatedReply","responseLongType":"EngineForkChoiceUpdatedReply","responseFullType":"remote.EngineForkChoiceUpdatedReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#engineforkchoiceupdatedrequest","responseTypeLink":"/protobuf/ethbackend.proto#engineforkchoiceupdatedreply"}} />
+
+
+#### `Version`
+<ProtoServiceMethod key={'Version-6'} method={{"name":"Version","description":"Version returns the service version number","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"VersionReply","responseLongType":".types.VersionReply","responseFullType":"types.VersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/types.proto#versionreply"}} />
+
+
+#### `ProtocolVersion`
+<ProtoServiceMethod key={'ProtocolVersion-7'} method={{"name":"ProtocolVersion","description":"ProtocolVersion returns the Ethereum protocol version number (e.g. 66 for ETH66).","requestType":"ProtocolVersionRequest","requestLongType":"ProtocolVersionRequest","requestFullType":"remote.ProtocolVersionRequest","requestStreaming":false,"responseType":"ProtocolVersionReply","responseLongType":"ProtocolVersionReply","responseFullType":"remote.ProtocolVersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#protocolversionrequest","responseTypeLink":"/protobuf/ethbackend.proto#protocolversionreply"}} />
+
+
+#### `ClientVersion`
+<ProtoServiceMethod key={'ClientVersion-8'} method={{"name":"ClientVersion","description":"ClientVersion returns the Ethereum client version string using node name convention (e.g. TurboGeth/v2021.03.2-alpha/Linux).","requestType":"ClientVersionRequest","requestLongType":"ClientVersionRequest","requestFullType":"remote.ClientVersionRequest","requestStreaming":false,"responseType":"ClientVersionReply","responseLongType":"ClientVersionReply","responseFullType":"remote.ClientVersionReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#clientversionrequest","responseTypeLink":"/protobuf/ethbackend.proto#clientversionreply"}} />
+
+
+#### `Subscribe`
+<ProtoServiceMethod key={'Subscribe-9'} method={{"name":"Subscribe","description":"","requestType":"SubscribeRequest","requestLongType":"SubscribeRequest","requestFullType":"remote.SubscribeRequest","requestStreaming":false,"responseType":"SubscribeReply","responseLongType":"SubscribeReply","responseFullType":"remote.SubscribeReply","responseStreaming":true,"requestTypeLink":"/protobuf/ethbackend.proto#subscriberequest","responseTypeLink":"/protobuf/ethbackend.proto#subscribereply"}} />
+
+
+#### `SubscribeLogs`
+<ProtoServiceMethod key={'SubscribeLogs-10'} method={{"name":"SubscribeLogs","description":"Only one subscription is needed to serve all the users, LogsFilterRequest allows to dynamically modifying the subscription","requestType":"LogsFilterRequest","requestLongType":"LogsFilterRequest","requestFullType":"remote.LogsFilterRequest","requestStreaming":true,"responseType":"SubscribeLogsReply","responseLongType":"SubscribeLogsReply","responseFullType":"remote.SubscribeLogsReply","responseStreaming":true,"requestTypeLink":"/protobuf/ethbackend.proto#logsfilterrequest","responseTypeLink":"/protobuf/ethbackend.proto#subscribelogsreply"}} />
+
+
+#### `Block`
+<ProtoServiceMethod key={'Block-11'} method={{"name":"Block","description":"High-level method - can read block from db, snapshots or apply any other logic\nit doesn't provide consistency\nRequest fields are optional - it's ok to request block only by hash or only by number","requestType":"BlockRequest","requestLongType":"BlockRequest","requestFullType":"remote.BlockRequest","requestStreaming":false,"responseType":"BlockReply","responseLongType":"BlockReply","responseFullType":"remote.BlockReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#blockrequest","responseTypeLink":"/protobuf/ethbackend.proto#blockreply"}} />
+
+
+#### `TxnLookup`
+<ProtoServiceMethod key={'TxnLookup-12'} method={{"name":"TxnLookup","description":"High-level method - can find block number by txn hash\nit doesn't provide consistency","requestType":"TxnLookupRequest","requestLongType":"TxnLookupRequest","requestFullType":"remote.TxnLookupRequest","requestStreaming":false,"responseType":"TxnLookupReply","responseLongType":"TxnLookupReply","responseFullType":"remote.TxnLookupReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#txnlookuprequest","responseTypeLink":"/protobuf/ethbackend.proto#txnlookupreply"}} />
+
+
+#### `NodeInfo`
+<ProtoServiceMethod key={'NodeInfo-13'} method={{"name":"NodeInfo","description":"NodeInfo collects and returns NodeInfo from all running sentry instances.","requestType":"NodesInfoRequest","requestLongType":"NodesInfoRequest","requestFullType":"remote.NodesInfoRequest","requestStreaming":false,"responseType":"NodesInfoReply","responseLongType":"NodesInfoReply","responseFullType":"remote.NodesInfoReply","responseStreaming":false,"requestTypeLink":"/protobuf/ethbackend.proto#nodesinforequest","responseTypeLink":"/protobuf/ethbackend.proto#nodesinforeply"}} />
+
+
+#### `Peers`
+<ProtoServiceMethod key={'Peers-14'} method={{"name":"Peers","description":"Peers collects and returns peers information from all running sentry instances.","requestType":"Empty","requestLongType":".google.protobuf.Empty","requestFullType":"google.protobuf.Empty","requestStreaming":false,"responseType":"PeersReply","responseLongType":"PeersReply","responseFullType":"remote.PeersReply","responseStreaming":false,"requestTypeLink":"/protobuf/empty.proto#empty","responseTypeLink":"/protobuf/ethbackend.proto#peersreply"}} />
+
+
+---
+
+
+  

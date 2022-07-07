@@ -72,9 +72,32 @@ if (process.env.VERCEL_URL) {
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  plugins: ["docusaurus-plugin-sass", "@docusaurus/plugin-ideal-image"],
+  plugins: ["docusaurus-plugin-sass", "@docusaurus/plugin-ideal-image",
+  [
+    '@easyops-cn/docusaurus-search-local',
+    {
+      hashed: true,
+      docsRouteBasePath: ['docs', 'protodocs'],
+      docsDir: ['docs', 'protodocs'],
+      indexBlog: false,
+    },
+  ],
+],
   presets: [
     /** ************ Your other presets' config  *********** */
+    [
+      'docusaurus-protobuffet',
+      {
+        protobuffet: {
+          fileDescriptorsPath: './fixtures/proto_workspace.json',
+          protoDocsPath: './protodocs',
+          sidebarPath: './generatedSidebarsProtodocs.js',
+        },
+        docs: {
+          sidebarPath: './sidebarsProtodocs.js',
+        },
+      }, 
+    ],
     [
       '@docusaurus/preset-classic',
       {
@@ -112,6 +135,12 @@ const config = {
           label: 'Guidebook',
           position: 'left',
           to: '/docs',
+        },
+        {
+          to: 'protodocs/common.proto',
+          activeBasePath: 'protodocs',
+          label: 'Erigion',
+          position: 'left',
         },
         {
           label: 'Eth2 APIs',
