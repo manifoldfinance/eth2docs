@@ -1,8 +1,6 @@
 ---
-title: Plugin Options
+title: Client Options
 sidebar_position: 1
-author: Rohit Gohri
-author_url: https://rohit.page
 ---
 
 ### spec (required, string: file path or remote absolute url)
