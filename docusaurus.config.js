@@ -94,8 +94,11 @@ const config = {
           sidebarPath: './generatedSidebarsProtodocs.js',
         },
         docs: {
-          sidebarPath: './sidebarsProtodocs.js',
-        },
+          path: 'docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/sambacha/eth2docs/tree/master/',
+       },
       }, 
     ],
     [
@@ -120,7 +123,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   customFields: {
     meta: {
-      description: 'Redoc generated documentation for Ethereum2',
+      description: 'Staking Node Documentation for Ethereum',
     },
   },
   url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', // Your website URL
@@ -169,17 +172,17 @@ const config = {
           position: 'right',
           items: [
             {
-              label: 'v0',
-              href: '#',
+              label: 'v1.1.0',
+              href: 'Eth2Spec',
             },
             {
-              label: 'v1',
+              label: 'v1.0.0',
               href: '#',
             },
           ],
         },
         {
-          href: 'https://github.com/sambacha/eth2api',
+          href: 'https://github.com/sambacha/eth2docs',
           position: 'right',
           className: 'header-github-logo',
           'aria-label': 'GitHub Repo',
@@ -210,15 +213,15 @@ const config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Resources',
           items: [
             {
               label: 'Github',
-              href: 'https://github.com/sambacha/eth2api/',
+              href: 'https://github.com/sambacha/eth2docs/',
             },
             {
               label: 'Blog Post',
-              href: 'https://github.com/sambacha/eth2api',
+              href: 'https://github.com/sambacha/eth2docs',
             },
             {
               label: 'Telegram',
