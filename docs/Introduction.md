@@ -1,6 +1,7 @@
 ---
 title: Introduction
 sidebar_position: 1
+id: intro
 author: Sam Bacha
 author_url: https://github.com/sambacha
 ---
