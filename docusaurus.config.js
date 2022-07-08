@@ -54,7 +54,7 @@ const redocusaurus = [
        * Options to pass to redoc
        * @see https://github.com/redocly/redoc#redoc-options-object
        */
-      options: { disableSearch: false },
+      options: { disableSearch: true },
       /**
        * Options to pass to override RedocThemeObject
        * @see https://github.com/Redocly/redoc#redoc-theme-object
@@ -63,6 +63,7 @@ const redocusaurus = [
     },
   },
 ];
+
 if (process.env.VERCEL_URL) {
   process.env.DEPLOY_PRIME_URL = `https://${process.env.VERCEL_URL}`;
 }
@@ -97,8 +98,9 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/sambacha/eth2docs/tree/master/',
-        },
-      },
+       },
+      }, 
+    ],
     [
       '@docusaurus/preset-classic',
       {
@@ -115,7 +117,6 @@ const config = {
     // Redocusaurus Config
     redocusaurus,
   ],
-],
   title: 'Ethereum2 APIs',
   tagline: 'API Specifications Clients, Nodes, and DApps',
   onBrokenLinks: 'warn',
@@ -125,8 +126,8 @@ const config = {
       description: 'Staking Node Documentation for Ethereum',
     },
   },
-  url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', 
-  baseUrl: process.env.DEPLOY_BASE_URL || '/', 
+  url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', // Your website URL
+  baseUrl: process.env.DEPLOY_BASE_URL || '/', // Base URL for your project */
   favicon: 'img/favicon.ico',
   trailingSlash: false,
   themeConfig: {
@@ -166,10 +167,8 @@ const config = {
             },
           ],
         },
-        { 
-      //  v2.3.0 - Eth2Spec v1.1.0 
-      // https://ethereum.github.io/beacon-APIs/#/ValidatorRequiredApi
-          label: 'v2.3.0',
+        {
+          label: 'v2022.06',
           position: 'right',
           items: [
             {
