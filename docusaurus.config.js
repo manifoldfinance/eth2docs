@@ -98,7 +98,7 @@ const config = {
           editUrl:
             'https://github.com/sambacha/eth2docs/tree/master/',
         },
-        },
+      },
     [
       '@docusaurus/preset-classic',
       {
