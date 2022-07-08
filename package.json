@@ -14,10 +14,10 @@
     "test": "percy snapshot snapshots.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.21",
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.21",
-    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.21",
-    "@docusaurus/preset-classic": "^2.0.0-beta.21",
+    "@docusaurus/core": "^2.0.0-beta.22",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.22",
+    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.22",
+    "@docusaurus/preset-classic": "^2.0.0-beta.22",
     "@easyops-cn/docusaurus-search-local": "^0.28.0",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.2",
