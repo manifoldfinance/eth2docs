@@ -8,40 +8,40 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Introduction](#introduction)
-- [Custom types](#custom-types)
-- [Preset](#preset)
-  - [Execution](#execution)
-  - [Updated penalty values](#updated-penalty-values)
-- [Configuration](#configuration)
-  - [Transition settings](#transition-settings)
-- [Containers](#containers)
-  - [Extended containers](#extended-containers)
-    - [`BeaconBlockBody`](#beaconblockbody)
-    - [`BeaconState`](#beaconstate)
-  - [New containers](#new-containers)
-    - [`ExecutionPayload`](#executionpayload)
-    - [`ExecutionPayloadHeader`](#executionpayloadheader)
-- [Helper functions](#helper-functions)
-  - [Predicates](#predicates)
-    - [`is_merge_transition_complete`](#is_merge_transition_complete)
-    - [`is_merge_transition_block`](#is_merge_transition_block)
-    - [`is_execution_enabled`](#is_execution_enabled)
-  - [Misc](#misc)
-    - [`compute_timestamp_at_slot`](#compute_timestamp_at_slot)
-  - [Beacon state accessors](#beacon-state-accessors)
-    - [Modified `get_inactivity_penalty_deltas`](#modified-get_inactivity_penalty_deltas)
-  - [Beacon state mutators](#beacon-state-mutators)
-    - [Modified `slash_validator`](#modified-slash_validator)
-- [Beacon chain state transition function](#beacon-chain-state-transition-function)
-  - [Execution engine](#execution-engine)
-    - [`notify_new_payload`](#notify_new_payload)
-  - [Block processing](#block-processing)
-    - [Execution payload](#execution-payload)
-      - [`process_execution_payload`](#process_execution_payload)
-  - [Epoch processing](#epoch-processing)
-    - [Slashings](#slashings)
-- [Testing](#testing)
+-   [Introduction](#introduction)
+-   [Custom types](#custom-types)
+-   [Preset](#preset)
+    -   [Execution](#execution)
+    -   [Updated penalty values](#updated-penalty-values)
+-   [Configuration](#configuration)
+    -   [Transition settings](#transition-settings)
+-   [Containers](#containers)
+    -   [Extended containers](#extended-containers)
+        -   [`BeaconBlockBody`](#beaconblockbody)
+        -   [`BeaconState`](#beaconstate)
+    -   [New containers](#new-containers)
+        -   [`ExecutionPayload`](#executionpayload)
+        -   [`ExecutionPayloadHeader`](#executionpayloadheader)
+-   [Helper functions](#helper-functions)
+    -   [Predicates](#predicates)
+        -   [`is_merge_transition_complete`](#is_merge_transition_complete)
+        -   [`is_merge_transition_block`](#is_merge_transition_block)
+        -   [`is_execution_enabled`](#is_execution_enabled)
+    -   [Misc](#misc)
+        -   [`compute_timestamp_at_slot`](#compute_timestamp_at_slot)
+    -   [Beacon state accessors](#beacon-state-accessors)
+        -   [Modified `get_inactivity_penalty_deltas`](#modified-get_inactivity_penalty_deltas)
+    -   [Beacon state mutators](#beacon-state-mutators)
+        -   [Modified `slash_validator`](#modified-slash_validator)
+-   [Beacon chain state transition function](#beacon-chain-state-transition-function)
+    -   [Execution engine](#execution-engine)
+        -   [`notify_new_payload`](#notify_new_payload)
+    -   [Block processing](#block-processing)
+        -   [Execution payload](#execution-payload)
+            -   [`process_execution_payload`](#process_execution_payload)
+    -   [Epoch processing](#epoch-processing)
+        -   [Slashings](#slashings)
+-   [Testing](#testing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- /TOC -->
@@ -51,48 +51,49 @@
 This upgrade adds transaction execution to the beacon chain as part of Bellatrix upgrade.
 
 Additionally, this upgrade introduces the following minor changes:
-* Penalty parameter updates to their planned maximally punitive values
+
+-   Penalty parameter updates to their planned maximally punitive values
 
 ## Custom types
 
-*Note*: The `Transaction` type is a stub which is not final.
+_Note_: The `Transaction` type is a stub which is not final.
 
-| Name | SSZ equivalent | Description |
-| - | - | - |
-| `Transaction` | `ByteList[MAX_BYTES_PER_TRANSACTION]` | either a [typed transaction envelope](https://eips.ethereum.org/EIPS/eip-2718#opaque-byte-array-rather-than-an-rlp-array) or a legacy transaction|
-| `ExecutionAddress` | `Bytes20` | Address of account on the execution layer |
+| Name               | SSZ equivalent                        | Description                                                                                                                                       |
+| ------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Transaction`      | `ByteList[MAX_BYTES_PER_TRANSACTION]` | either a [typed transaction envelope](https://eips.ethereum.org/EIPS/eip-2718#opaque-byte-array-rather-than-an-rlp-array) or a legacy transaction |
+| `ExecutionAddress` | `Bytes20`                             | Address of account on the execution layer                                                                                                         |
 
 ## Preset
 
 ### Execution
 
-| Name | Value |
-| - | - |
-| `MAX_BYTES_PER_TRANSACTION` | `uint64(2**30)` (= 1,073,741,824) |
-| `MAX_TRANSACTIONS_PER_PAYLOAD` | `uint64(2**20)` (= 1,048,576) |
-| `BYTES_PER_LOGS_BLOOM` | `uint64(2**8)` (= 256) |
-| `MAX_EXTRA_DATA_BYTES` | `2**5` (= 32) |
+| Name                           | Value                             |
+| ------------------------------ | --------------------------------- |
+| `MAX_BYTES_PER_TRANSACTION`    | `uint64(2**30)` (= 1,073,741,824) |
+| `MAX_TRANSACTIONS_PER_PAYLOAD` | `uint64(2**20)` (= 1,048,576)     |
+| `BYTES_PER_LOGS_BLOOM`         | `uint64(2**8)` (= 256)            |
+| `MAX_EXTRA_DATA_BYTES`         | `2**5` (= 32)                     |
 
 ### Updated penalty values
 
 Bellatrix updates a few configuration values to move penalty parameters to their final, maximum security values.
 
-*Note*: The spec does *not* override previous configuration values but instead creates new values and replaces usage throughout.
+_Note_: The spec does _not_ override previous configuration values but instead creates new values and replaces usage throughout.
 
-| Name | Value |
-| - | - |
-| `INACTIVITY_PENALTY_QUOTIENT_BELLATRIX` | `uint64(2**24)` (= 16,777,216) |
-| `MIN_SLASHING_PENALTY_QUOTIENT_BELLATRIX` | `uint64(2**5)` (= 32) |
-| `PROPORTIONAL_SLASHING_MULTIPLIER_BELLATRIX` | `uint64(3)` |
+| Name                                         | Value                          |
+| -------------------------------------------- | ------------------------------ |
+| `INACTIVITY_PENALTY_QUOTIENT_BELLATRIX`      | `uint64(2**24)` (= 16,777,216) |
+| `MIN_SLASHING_PENALTY_QUOTIENT_BELLATRIX`    | `uint64(2**5)` (= 32)          |
+| `PROPORTIONAL_SLASHING_MULTIPLIER_BELLATRIX` | `uint64(3)`                    |
 
 ## Configuration
 
 ### Transition settings
 
-| Name | Value |
-| - | - |
-| `TERMINAL_TOTAL_DIFFICULTY` | **TBD** |
-| `TERMINAL_BLOCK_HASH` | `Hash32()` |
+| Name                                   | Value              |
+| -------------------------------------- | ------------------ |
+| `TERMINAL_TOTAL_DIFFICULTY`            | **TBD**            |
+| `TERMINAL_BLOCK_HASH`                  | `Hash32()`         |
 | `TERMINAL_BLOCK_HASH_ACTIVATION_EPOCH` | `FAR_FUTURE_EPOCH` |
 
 ## Containers
@@ -234,7 +235,7 @@ def is_execution_enabled(state: BeaconState, body: BeaconBlockBody) -> bool:
 
 #### `compute_timestamp_at_slot`
 
-*Note*: This function is unsafe with respect to overflows and underflows.
+_Note_: This function is unsafe with respect to overflows and underflows.
 
 ```python
 def compute_timestamp_at_slot(state: BeaconState, slot: Slot) -> uint64:
@@ -246,7 +247,7 @@ def compute_timestamp_at_slot(state: BeaconState, slot: Slot) -> uint64:
 
 #### Modified `get_inactivity_penalty_deltas`
 
-*Note*: The function `get_inactivity_penalty_deltas` is modified to use `INACTIVITY_PENALTY_QUOTIENT_BELLATRIX`.
+_Note_: The function `get_inactivity_penalty_deltas` is modified to use `INACTIVITY_PENALTY_QUOTIENT_BELLATRIX`.
 
 ```python
 def get_inactivity_penalty_deltas(state: BeaconState) -> Tuple[Sequence[Gwei], Sequence[Gwei]]:
@@ -270,7 +271,7 @@ def get_inactivity_penalty_deltas(state: BeaconState) -> Tuple[Sequence[Gwei], S
 
 #### Modified `slash_validator`
 
-*Note*: The function `slash_validator` is modified to use `MIN_SLASHING_PENALTY_QUOTIENT_BELLATRIX`.
+_Note_: The function `slash_validator` is modified to use `MIN_SLASHING_PENALTY_QUOTIENT_BELLATRIX`.
 
 ```python
 def slash_validator(state: BeaconState,
@@ -298,18 +299,16 @@ def slash_validator(state: BeaconState,
     increase_balance(state, whistleblower_index, Gwei(whistleblower_reward - proposer_reward))
 ```
 
-
-
 ## Beacon chain state transition function
 
 ### Execution engine
 
 The implementation-dependent `ExecutionEngine` protocol encapsulates the execution sub-system logic via:
 
-* a state object `self.execution_state` of type `ExecutionState`
-* a notification function `self.notify_new_payload` which may apply changes to the `self.execution_state`
+-   a state object `self.execution_state` of type `ExecutionState`
+-   a notification function `self.notify_new_payload` which may apply changes to the `self.execution_state`
 
-*Note*: `notify_new_payload` is a function accessed through the `EXECUTION_ENGINE` module which instantiates the `ExecutionEngine` protocol.
+_Note_: `notify_new_payload` is a function accessed through the `EXECUTION_ENGINE` module which instantiates the `ExecutionEngine` protocol.
 
 The body of this function is implementation dependent.
 The Engine API may be used to implement this and similarly defined functions via an external execution engine.
@@ -326,7 +325,7 @@ def notify_new_payload(self: ExecutionEngine, execution_payload: ExecutionPayloa
 
 ### Block processing
 
-*Note*: The call to the `process_execution_payload` must happen before the call to the `process_randao` as the former depends on the `randao_mix` computed with the reveal of the previous block.
+_Note_: The call to the `process_execution_payload` must happen before the call to the `process_randao` as the former depends on the `randao_mix` computed with the reveal of the previous block.
 
 ```python
 def process_block(state: BeaconState, block: BeaconBlock) -> None:
@@ -377,7 +376,7 @@ def process_execution_payload(state: BeaconState, payload: ExecutionPayload, exe
 
 #### Slashings
 
-*Note*: The function `process_slashings` is modified to use `PROPORTIONAL_SLASHING_MULTIPLIER_BELLATRIX`.
+_Note_: The function `process_slashings` is modified to use `PROPORTIONAL_SLASHING_MULTIPLIER_BELLATRIX`.
 
 ```python
 def process_slashings(state: BeaconState) -> None:
@@ -397,13 +396,14 @@ def process_slashings(state: BeaconState) -> None:
 
 ## Testing
 
-*Note*: The function `initialize_beacon_state_from_eth1` is modified for pure Bellatrix testing only.
+_Note_: The function `initialize_beacon_state_from_eth1` is modified for pure Bellatrix testing only.
 Modifications include:
+
 1. Use `BELLATRIX_FORK_VERSION` as the current fork version.
 2. Utilize the Bellatrix `BeaconBlockBody` when constructing the initial `latest_block_header`.
 3. Initialize `latest_execution_payload_header`.
-  If `execution_payload_header == ExecutionPayloadHeader()`, then the Merge has not yet occurred.
-  Else, the Merge starts from genesis and the transition is incomplete.
+   If `execution_payload_header == ExecutionPayloadHeader()`, then the Merge has not yet occurred.
+   Else, the Merge starts from genesis and the transition is incomplete.
 
 ```python
 def initialize_beacon_state_from_eth1(eth1_block_hash: Hash32,

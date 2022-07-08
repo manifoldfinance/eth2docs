@@ -40,8 +40,8 @@ Additional details pertaining to the test setup and procedure can be found withi
 
 ## Performance Metrics
 
-| Value | Description |
-| --- | --- |
-| Subscription Time | The length of time it takes for a node to subscribe to a topic, or in otherwords, join a shard, and begin receiving and broadcasting messages pertaining to that topic. |
-| Discovery Time | The length of time it takes for a node to become aware of its peers within their subscribed shard. |
-| Message Propagation Time | (Broadcast time) The length of time it takes for a message, once broadcast, to be received by a majority (99%) of peers within the shard. |
+| Value                    | Description                                                                                                                                                             |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Subscription Time        | The length of time it takes for a node to subscribe to a topic, or in otherwords, join a shard, and begin receiving and broadcasting messages pertaining to that topic. |
+| Discovery Time           | The length of time it takes for a node to become aware of its peers within their subscribed shard.                                                                      |
+| Message Propagation Time | (Broadcast time) The length of time it takes for a message, once broadcast, to be received by a majority (99%) of peers within the shard.                               |

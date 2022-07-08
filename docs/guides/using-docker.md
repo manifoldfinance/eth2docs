@@ -1,17 +1,17 @@
 ---
 tags: ["how to", "docker"]
-title: How to Set Up Remote Access to Docker Daemon 
+title: How to Set Up Remote Access to Docker Daemon
 author: The Contributors
 ---
 
-# How to Set Up Remote Access to Docker Daemon 
+# How to Set Up Remote Access to Docker Daemon
 
 In this post, we will show you how to configure Docker daemon to manage the Docker host over TCP.
 
 ## Prerequisites
 
 -   debian based linux distro
--   docker-ce installed 
+-   docker-ce installed
 -   sudo privileges
 
 ```bash
@@ -74,7 +74,7 @@ root       48775  0.0  0.0  12108   992 pts/0    S+   00:58   0:00 grep --color=
 
 ```
 
-##  Configure Local System to Connect to the Docker Daemon
+## Configure Local System to Connect to the Docker Daemon
 
 Before starting, make sure Docker and Docker compose are installed on your local system. Now, you will need to configure your local system to connect to the Docker daemon on the remote Docker host.
 
@@ -101,16 +101,16 @@ Storage Driver: overlay2
  Backing Filesystem: xfs
  Supports d_type: true
  Native Overlay Diff: true
-Execution Driver: 
+Execution Driver:
 Kernel Version: 4.18.0-193.6.3.el8_2.x86_64
 Operating System: CentOS Linux 8 (Core)
 CPUs: 2
 Total Memory: 3.846 GiB
 Name: centos8
 ID: S56P:VPIW:CMGZ:GAFN:YZNG:22CE:OBY3:SKEW:JAMT:DLD4:FG5K:QXYR
-Http Proxy: 
-Https Proxy: 
-No Proxy: 
+Http Proxy:
+Https Proxy:
+No Proxy:
 Labels:
 
 ```
@@ -121,7 +121,7 @@ You can also run the docker-compose command on the remote host as shown below:
 docker-compose -H tcp://remote-docker-host-ip:2375 --version
 ```
 
-You can also set DOCKER\_HOST variable in your .bashrc file. So you don’t need to specify every time when executing docker or docker-compose command.
+You can also set DOCKER_HOST variable in your .bashrc file. So you don’t need to specify every time when executing docker or docker-compose command.
 
 You can set it with the following command:
 
@@ -148,4 +148,5 @@ docker --version
 In this guide, we learned how to configure Docker daemon to connect the remote Docker host over TCP and manage it from the local system.
 
 #### References
+
 2022-07-07T04:02:10 (UTC -07:00)
