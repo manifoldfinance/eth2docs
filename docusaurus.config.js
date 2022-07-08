@@ -54,7 +54,7 @@ const redocusaurus = [
        * Options to pass to redoc
        * @see https://github.com/redocly/redoc#redoc-options-object
        */
-      options: { disableSearch: true },
+      options: { disableSearch: false },
       /**
        * Options to pass to override RedocThemeObject
        * @see https://github.com/Redocly/redoc#redoc-theme-object
@@ -63,7 +63,6 @@ const redocusaurus = [
     },
   },
 ];
-
 if (process.env.VERCEL_URL) {
   process.env.DEPLOY_PRIME_URL = `https://${process.env.VERCEL_URL}`;
 }
@@ -94,10 +93,12 @@ const config = {
           sidebarPath: './generatedSidebarsProtodocs.js',
         },
         docs: {
-          sidebarPath: './sidebarsProtodocs.js',
+          path: 'docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/sambacha/eth2docs/tree/master/',
         },
-      }, 
-    ],
+        },
     [
       '@docusaurus/preset-classic',
       {
@@ -114,17 +115,18 @@ const config = {
     // Redocusaurus Config
     redocusaurus,
   ],
+],
   title: 'Ethereum2 APIs',
   tagline: 'API Specifications Clients, Nodes, and DApps',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   customFields: {
     meta: {
-      description: 'Redoc generated documentation for Ethereum2',
+      description: 'Staking Node Documentation for Ethereum',
     },
   },
-  url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', // Your website URL
-  baseUrl: process.env.DEPLOY_BASE_URL || '/', // Base URL for your project */
+  url: process.env.DEPLOY_PRIME_URL || 'http://localhost:5000', 
+  baseUrl: process.env.DEPLOY_BASE_URL || '/', 
   favicon: 'img/favicon.ico',
   trailingSlash: false,
   themeConfig: {
@@ -164,22 +166,24 @@ const config = {
             },
           ],
         },
-        {
-          label: 'v2022.06',
+        { 
+      //  v2.3.0 - Eth2Spec v1.1.0 
+      // https://ethereum.github.io/beacon-APIs/#/ValidatorRequiredApi
+          label: 'v2.3.0',
           position: 'right',
           items: [
             {
-              label: 'v0',
-              href: '#',
+              label: 'v1.1.0',
+              href: 'Eth2Spec',
             },
             {
-              label: 'v1',
+              label: 'v1.0.0',
               href: '#',
             },
           ],
         },
         {
-          href: 'https://github.com/sambacha/eth2api',
+          href: 'https://github.com/sambacha/eth2docs',
           position: 'right',
           className: 'header-github-logo',
           'aria-label': 'GitHub Repo',
@@ -210,15 +214,15 @@ const config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Resources',
           items: [
             {
               label: 'Github',
-              href: 'https://github.com/sambacha/eth2api/',
+              href: 'https://github.com/sambacha/eth2docs/',
             },
             {
               label: 'Blog Post',
-              href: 'https://github.com/sambacha/eth2api',
+              href: 'https://github.com/sambacha/eth2docs',
             },
             {
               label: 'Telegram',
