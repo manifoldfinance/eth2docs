@@ -1,3 +1,8 @@
+---
+title: Scaling in the presence of errors
+sidebar_position: 5
+---
+
 # Scaling in the presence of errors
 
 

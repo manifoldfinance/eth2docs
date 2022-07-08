@@ -5,7 +5,6 @@ summary: Preliminary Benchmarking Plan
 section: 2
 ---
 
-
 # Performance Test Plan
 
 :::note
@@ -18,7 +17,7 @@ A Sample of a Performance Testing Plan
 
 > State the testing plan and objectives
 
-The network is segmented into X number of sub-networks. Every ~10 minutes, validators are randomly assigned to a sub-network, so the stress point is observing and testing the ability of validators to subscribe to new topics and send/receive messages pertaining to this new topic in an adequate amount of time.
+The network is segmented into X number of sub-networks. Every ~10 minutes, validators are randomly assigned to a sub-network, so the stress point is observing and testing the ability of validators to subscribe to new topics and send/receive messages about this new topic in an adequate amount of time.
 
 ### Test Utilities
 

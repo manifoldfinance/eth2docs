@@ -1,8 +1,6 @@
 ---
-title: Theme Options
-sidebar_position: 2
-author: Rohit Gohri
-author_url: https://rohit.page
+title: Key Management
+sidebar_position: 5
 ---
 
 ### primaryColor (string, hex/rgba value)
