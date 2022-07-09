@@ -2,15 +2,18 @@
 title: Installation
 sidebar_position: 0
 author: Contirbutors
-author_url: https://rohit.page
 ---
 
-1. Install redocusaurus:
+1. Install [`nix`](https://nixos.org/download.html#nix-install-linux):
 
-![npm](https://img.shields.io/npm/v/redocusaurus?style=flat-square)
+- Linux: 
+
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+
+- macOS
 
 ```sh
-npm i --save redocusaurus
-# OR
-yarn add redocusaurus
+sh <(curl -L https://nixos.org/nix/install)
 ```
