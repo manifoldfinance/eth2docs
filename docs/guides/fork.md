@@ -7,11 +7,11 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Introduction](#introduction)
-- [Configuration](#configuration)
-- [Fork to Bellatrix](#fork-to-bellatrix)
-  - [Fork trigger](#fork-trigger)
-  - [Upgrading the state](#upgrading-the-state)
+-   [Introduction](#introduction)
+-   [Configuration](#configuration)
+-   [Fork to Bellatrix](#fork-to-bellatrix)
+    -   [Fork trigger](#fork-trigger)
+    -   [Upgrading the state](#upgrading-the-state)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -23,10 +23,10 @@ This document describes the process of Bellatrix upgrade.
 
 Warning: this configuration is not definitive.
 
-| Name | Value |
-| - | - |
-| `BELLATRIX_FORK_VERSION` | `Version('0x02000000')` |
-| `BELLATRIX_FORK_EPOCH` | `Epoch(18446744073709551615)` **TBD** |
+| Name                     | Value                                 |
+| ------------------------ | ------------------------------------- |
+| `BELLATRIX_FORK_VERSION` | `Version('0x02000000')`               |
+| `BELLATRIX_FORK_EPOCH`   | `Epoch(18446744073709551615)` **TBD** |
 
 ## Fork to Bellatrix
 

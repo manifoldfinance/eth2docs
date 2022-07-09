@@ -12,24 +12,24 @@ Readers should understand the Phase 0 and Altair documents and use them as a bas
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-  - [Warning](#warning)
-- [Modifications in Bellatrix](#modifications-in-bellatrix)
-  - [Configuration](#configuration)
-  - [The gossip domain: gossipsub](#the-gossip-domain-gossipsub)
-    - [Topics and messages](#topics-and-messages)
-      - [Global topics](#global-topics)
-        - [`beacon_block`](#beacon_block)
-    - [Transitioning the gossip](#transitioning-the-gossip)
-  - [The Req/Resp domain](#the-reqresp-domain)
-    - [Messages](#messages)
-      - [BeaconBlocksByRange v2](#beaconblocksbyrange-v2)
-      - [BeaconBlocksByRoot v2](#beaconblocksbyroot-v2)
-- [Design decision rationale](#design-decision-rationale)
-  - [Gossipsub](#gossipsub)
-    - [Why was the max gossip message size increased at Bellatrix?](#why-was-the-max-gossip-message-size-increased-at-bellatrix)
-  - [Req/Resp](#reqresp)
-    - [Why was the max chunk response size increased at Bellatrix?](#why-was-the-max-chunk-response-size-increased-at-bellatrix)
-    - [Why allow invalid payloads on the P2P network?](#why-allow-invalid-payloads-on-the-p2p-network)
+-   [Warning](#warning)
+-   [Modifications in Bellatrix](#modifications-in-bellatrix)
+    -   [Configuration](#configuration)
+    -   [The gossip domain: gossipsub](#the-gossip-domain-gossipsub)
+        -   [Topics and messages](#topics-and-messages)
+            -   [Global topics](#global-topics)
+                -   [`beacon_block`](#beacon_block)
+        -   [Transitioning the gossip](#transitioning-the-gossip)
+    -   [The Req/Resp domain](#the-reqresp-domain)
+        -   [Messages](#messages)
+            -   [BeaconBlocksByRange v2](#beaconblocksbyrange-v2)
+            -   [BeaconBlocksByRoot v2](#beaconblocksbyroot-v2)
+-   [Design decision rationale](#design-decision-rationale)
+    -   [Gossipsub](#gossipsub)
+        -   [Why was the max gossip message size increased at Bellatrix?](#why-was-the-max-gossip-message-size-increased-at-bellatrix)
+    -   [Req/Resp](#reqresp)
+        -   [Why was the max chunk response size increased at Bellatrix?](#why-was-the-max-chunk-response-size-increased-at-bellatrix)
+        -   [Why allow invalid payloads on the P2P network?](#why-allow-invalid-payloads-on-the-p2p-network)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- /TOC -->
@@ -45,10 +45,10 @@ Refer to the note in the [validator guide](./validator.md) for further details.
 
 This section outlines modifications constants that are used in this spec.
 
-| Name | Value | Description |
-|---|---|---|
-| `GOSSIP_MAX_SIZE_BELLATRIX` | `10 * 2**20` (= 10,485,760, 10 MiB) | The maximum allowed size of uncompressed gossip messages starting at Bellatrix upgrade. |
-| `MAX_CHUNK_SIZE_BELLATRIX` | `10 * 2**20` (= 10,485,760, 10 MiB) | The maximum allowed size of uncompressed req/resp chunked responses starting at Bellatrix upgrade. |
+| Name                        | Value                               | Description                                                                                        |
+| --------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `GOSSIP_MAX_SIZE_BELLATRIX` | `10 * 2**20` (= 10,485,760, 10 MiB) | The maximum allowed size of uncompressed gossip messages starting at Bellatrix upgrade.            |
+| `MAX_CHUNK_SIZE_BELLATRIX`  | `10 * 2**20` (= 10,485,760, 10 MiB) | The maximum allowed size of uncompressed req/resp chunked responses starting at Bellatrix upgrade. |
 
 ## The gossip domain: gossipsub
 
@@ -70,8 +70,8 @@ The derivation of the `message-id` remains stable.
 
 The new topics along with the type of the `data` field of a gossipsub message are given in this table:
 
-| Name | Message Type |
-| - | - |
+| Name           | Message Type                   |
+| -------------- | ------------------------------ |
 | `beacon_block` | `SignedBeaconBlock` (modified) |
 
 Note that the `ForkDigestValue` path segment of the topic separates the old and the new `beacon_block` topics.
@@ -82,7 +82,7 @@ Bellatrix changes the type of the global beacon block topic.
 
 ##### `beacon_block`
 
-The *type* of the payload of this topic changes to the (modified) `SignedBeaconBlock` found in Bellatrix.
+The _type_ of the payload of this topic changes to the (modified) `SignedBeaconBlock` found in Bellatrix.
 Specifically, this type changes with the addition of `execution_payload` to the inner `BeaconBlockBody`.
 See Bellatrix [state transition document](./beacon-chain.md#beaconblockbody) for further details.
 
@@ -93,19 +93,21 @@ validity of the execution payload. This prevents network segregation between
 In addition to the gossip validations for this topic from prior specifications,
 the following validations MUST pass before forwarding the `signed_beacon_block` on the network.
 Alias `block = signed_beacon_block.message`, `execution_payload = block.body.execution_payload`.
-- If the execution is enabled for the block -- i.e. `is_execution_enabled(state, block.body)`
-  then validate the following:
-    - _[REJECT]_ The block's execution payload timestamp is correct with respect to the slot
-       -- i.e. `execution_payload.timestamp == compute_timestamp_at_slot(state, block.slot)`.
-    - If `exection_payload` verification of block's parent by an execution node is *not* complete:
-    	- [REJECT] The block's parent (defined by `block.parent_root`) passes all
-    	  validation (excluding execution node verification of the `block.body.execution_payload`).
-    - otherwise:
-    	- [IGNORE] The block's parent (defined by `block.parent_root`) passes all
-    	  validation (including execution node verification of the `block.body.execution_payload`).
+
+-   If the execution is enabled for the block -- i.e. `is_execution_enabled(state, block.body)`
+    then validate the following:
+    -   _[REJECT]_ The block's execution payload timestamp is correct with respect to the slot
+        -- i.e. `execution_payload.timestamp == compute_timestamp_at_slot(state, block.slot)`.
+    -   If `exection_payload` verification of block's parent by an execution node is _not_ complete:
+        -   [REJECT] The block's parent (defined by `block.parent_root`) passes all
+            validation (excluding execution node verification of the `block.body.execution_payload`).
+    -   otherwise:
+        -   [IGNORE] The block's parent (defined by `block.parent_root`) passes all
+            validation (including execution node verification of the `block.body.execution_payload`).
 
 The following gossip validation from prior specifications MUST NOT be applied if the execution is enabled for the block -- i.e. `is_execution_enabled(state, block.body)`:
-  - [REJECT] The block's parent (defined by `block.parent_root`) passes validation.
+
+-   [REJECT] The block's parent (defined by `block.parent_root`) passes validation.
 
 ### Transitioning the gossip
 
@@ -119,7 +121,7 @@ result in an INVALID response from an execution engine. To prevent network
 segregation between optimistic and non-optimistic nodes, transmission of an
 INVALID execution payload via the Req/Resp domain SHOULD NOT cause a node to be
 down-scored or disconnected. Transmission of a block which is invalid due to
-any consensus layer rules (i.e., *not* execution layer rules) MAY result in
+any consensus layer rules (i.e., _not_ execution layer rules) MAY result in
 down-scoring or disconnection.
 
 ### Messages
@@ -132,18 +134,18 @@ Request and Response remain unchanged unless explicitly noted here.
 
 Starting at Bellatrix upgrade,
 a global maximum uncompressed byte size of `MAX_CHUNK_SIZE_BELLATRIX` MUST be applied to all method response chunks
-regardless of type specific bounds that *MUST* also be respected.
+regardless of type specific bounds that _MUST_ also be respected.
 
 Bellatrix fork-digest is introduced to the `context` enum to specify Bellatrix block type.
 
 Per `context = compute_fork_digest(fork_version, genesis_validators_root)`:
 
-[0]: # (eth2spec: skip)
+[0]: # "eth2spec: skip"
 
-| `fork_version`           | Chunk SSZ type             |
-| ------------------------ | -------------------------- |
-| `GENESIS_FORK_VERSION`   | `phase0.SignedBeaconBlock` |
-| `ALTAIR_FORK_VERSION`    | `altair.SignedBeaconBlock` |
+| `fork_version`           | Chunk SSZ type                |
+| ------------------------ | ----------------------------- |
+| `GENESIS_FORK_VERSION`   | `phase0.SignedBeaconBlock`    |
+| `ALTAIR_FORK_VERSION`    | `altair.SignedBeaconBlock`    |
 | `BELLATRIX_FORK_VERSION` | `bellatrix.SignedBeaconBlock` |
 
 #### BeaconBlocksByRoot v2
@@ -155,12 +157,12 @@ Bellatrix fork-digest is introduced to the `context` enum to specify Bellatrix b
 
 Per `context = compute_fork_digest(fork_version, genesis_validators_root)`:
 
-[1]: # (eth2spec: skip)
+[1]: # "eth2spec: skip"
 
-| `fork_version`           | Chunk SSZ type             |
-| ------------------------ | -------------------------- |
-| `GENESIS_FORK_VERSION`   | `phase0.SignedBeaconBlock` |
-| `ALTAIR_FORK_VERSION`    | `altair.SignedBeaconBlock` |
+| `fork_version`           | Chunk SSZ type                |
+| ------------------------ | ----------------------------- |
+| `GENESIS_FORK_VERSION`   | `phase0.SignedBeaconBlock`    |
+| `ALTAIR_FORK_VERSION`    | `altair.SignedBeaconBlock`    |
 | `BELLATRIX_FORK_VERSION` | `bellatrix.SignedBeaconBlock` |
 
 # Design decision rationale

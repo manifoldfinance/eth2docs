@@ -3,11 +3,11 @@ title: Configuration Variety and enforcing Conformance
 sidebar_position: 3
 ---
 
-## Improper Configuration leads to service disruptions 
+## Improper Configuration leads to service disruptions
 
 > "The lethal variety attenuator is sheer ignorance."
->  - Stafford Beer
-
+>
+> -   Stafford Beer
 
 ### List of Incidents directly related to configuration
 
