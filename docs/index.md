@@ -1,14 +1,28 @@
 ---
 title: Introduction
 sidebar_position: 1
-author: Sam Bacha
-author_url: https://github.com/sambacha
 ---
 
-# The Viable Node Model
 
-The Viable Nodel Model is an implementation of the Viable Systems Model for
-decentralized blockchain networks.
+### Preface
+
+The goal of scaling leads to the only consideration of what is successful being defined by if they have millions (or, indirectly, billions) of users.
+
+This has led us to the thinking that _every_ project needs to be designed for millions of users at the very least. Sub-second telemetry for all the data collected, another explosion, giving rise to data analytics for everyone, not just Business Intelligence (BI) for large companies. There is a point of diminishing returns that is often ignored.
+
+What do you do as an "architect"/"practitioner" or engineer on a team? Your small group can't design and build every piece to support these scaling demands while the sword of Damocles hangs over you in the form of potential pivots while flashes of fleeting missed opportunities stream before you.
+
+As an industry, we are inevitably forced to make these choices. Either you're a leader and make your Faustian bargain, or you're in the general mass of developers being whipped and driven to the gates of Hell.
+
+**There is a third option**: turn that appearance of a disadvantage into an advantage. **Embrace the principle of Least Functionality and Least Privilege and orient yourself towards a security-first posture.**
+
+Only you, dear reader, can decide the turns this tragic story will take, and I should exaggerate what you forgive in this telling perchance.
+
+
+
+## The Viable Ethereum Node Operators Model (VENOM)
+
+The Viable Ethereum Node Operators Model is an implementation of the Viable Systems Model for decentralized blockchain networks.
 
 It prioritizes and emphasizes:
 
