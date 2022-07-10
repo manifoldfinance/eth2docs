@@ -1,14 +1,11 @@
 ---
 title: Introduction
 sidebar_position: 1
-author: Sam Bacha
-author_url: https://github.com/sambacha
 ---
 
-# The Viable Node Model
+# The Viable Ethereum Node Operators Model (VENOM)
 
-The Viable Nodel Model is an implementation of the Viable Systems Model for
-decentralized blockchain networks.
+The Viable Ethereum Node Operators Model is an implementation of the Viable Systems Model for decentralized blockchain networks.
 
 It prioritizes and emphasizes:
 
