@@ -26,6 +26,11 @@ const redocusaurus = [
         spec: 'openapi/execution/openapi.yaml',
         route: '/api/execution-api/',
       },
+      {
+        id: 'Teku',
+        spec: 'openapi/teku/teku-v22.6.1.json',
+        route: '/api/teku/',
+      },
       /*    {
         id: 'using-remote-url',
         // Remote File
@@ -135,6 +140,12 @@ const config = {
           label: 'Guidebook',
           position: 'left',
           to: '/docs',
+        },
+        {
+          to: '/api/teku',
+          activeBasePath: 'openapi',
+          label: 'Teku',
+          position: 'left',
         },
         {
           to: 'protodocs/common.proto',
