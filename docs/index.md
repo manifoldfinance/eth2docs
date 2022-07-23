@@ -3,7 +3,6 @@ title: Introduction
 sidebar_position: 1
 ---
 
-
 ### Preface
 
 The goal of scaling leads to the only consideration of what is successful being defined by if they have millions (or, indirectly, billions) of users.
@@ -17,8 +16,6 @@ As an industry, we are inevitably forced to make these choices. Either you're a 
 **There is a third option**: turn that appearance of a disadvantage into an advantage. **Embrace the principle of Least Functionality and Least Privilege and orient yourself towards a security-first posture.**
 
 Only you, dear reader, can decide the turns this tragic story will take, and I should exaggerate what you forgive in this telling perchance.
-
-
 
 ## The Viable Ethereum Node Operators Model (VENOM)
 

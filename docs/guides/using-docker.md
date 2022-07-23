@@ -1,7 +1,7 @@
 ---
 tags: ["how to", "docker"]
 title: How to Set Up Remote Access to Docker Daemon
-author: The Contributors
+author: Contributors
 ---
 
 # How to Set Up Remote Access to Docker Daemon
