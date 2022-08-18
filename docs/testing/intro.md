@@ -7,7 +7,7 @@ id: intro
 
 # Testing Distributed Systems
 
-> Working Name: ts-disco / _TSDISCO_
+> A system's overall availability is a function of the cumulative availability of each of its services
 
 The following are types of tests one can perform on a distributed system:
 
