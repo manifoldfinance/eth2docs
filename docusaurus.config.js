@@ -26,6 +26,11 @@ const redocusaurus = [
         spec: 'openapi/execution/openapi.yaml',
         route: '/api/execution-api/',
       },
+       {
+        id: 'key-manager-api',
+        spec: 'openapi/key-manager/openapi.yml',
+        route: '/api/key-manager-api/',
+      },
       {
         id: 'Teku',
         spec: 'openapi/teku/teku-v22.6.1.json',
@@ -170,6 +175,10 @@ const config = {
               to: '/api/execution-api/',
             },
             {
+              label: 'Key Manager API',
+              to: '/api/key-manager-api/',
+            },
+            {
               label: 'MEV Boost API',
               to: '/api/mev-boost-api/',
             },
@@ -190,7 +199,7 @@ const config = {
           ],
         },
         {
-          href: 'https://github.com/sambacha/eth2api',
+          href: 'https://github.com/sambacha/eth2docs',
           position: 'right',
           className: 'header-github-logo',
           'aria-label': 'GitHub Repo',
@@ -225,11 +234,11 @@ const config = {
           items: [
             {
               label: 'Github',
-              href: 'https://github.com/sambacha/eth2api/',
+              href: 'https://github.com/sambacha/eth2docs/',
             },
             {
               label: 'Blog Post',
-              href: 'https://github.com/sambacha/eth2api',
+              href: 'https://github.com/sambacha/eth2docs',
             },
             {
               label: 'Telegram',

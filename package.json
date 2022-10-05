@@ -1,8 +1,8 @@
 {
-  "name": "eth2api-website",
-  "version": "0.0.6",
+  "name": "eth2docs-website",
+  "version": "0.0.7",
   "private": true,
-  "license": "MIT",
+  "license": "UPL-1.0",
   "author": "SEE CONTRIBUTORS",
   "scripts": {
     "clear": "docusaurus clear",
